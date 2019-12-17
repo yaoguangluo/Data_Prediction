@@ -6,7 +6,7 @@ import org.tinos.deta.cluster.Distance;
 import org.tinos.deta.cluster.Eclid;
 import org.tinos.deta.cluster.Position2D;
 //这个函数用于通过重心位移距离来进行坐标分类
-//思想：欧基里德, 罗瑶光
+//思想：欧基里德
 //实现：罗瑶光
 public class PositionClasification{
 	public static Map<String, List<Position2D>> addNewPositionWithoutHeart(Map<String
