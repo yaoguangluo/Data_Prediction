@@ -46,7 +46,6 @@ public class PositionClasification{
 		boolean isFirst= true;
 		while(iterator.hasNext()) {
 			String groupKey= iterator.next();
-			List<Position2D> group= groups.get(groupKey);
 			Position2D heart= hearts.get(groupKey);
 			double distance= Distance.getDistance2D(heart, position2D);
 			if(isFirst) {
