@@ -1,5 +1,5 @@
 package org.tinos.deta.cluster;
-//Theory: Eclid
+//Theory: ±´Ò¶Ë¹
 //Application: Yaoguang.luo
 public class Ratio{
 	public double getErrorRatio() {
