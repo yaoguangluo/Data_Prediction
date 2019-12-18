@@ -43,6 +43,35 @@ public class ProbabilityClasification{
 		return pridictionRight> pridictionError+ scale? true: false;	
 	}
 	
+	public static boolean predictionResult(RatioMatrix input, List<RatioMatrix> groups, double scale) {
+		double rightRightMean= 0;
+		double rightErrorMean= 0;
+		double errorRightMean= 0;
+		double errorErrorMean= 0;
+		//成功集
+		Iterator<RatioMatrix> iterators= groups.iterator();
+		while(iterators.hasNext()) {
+			RatioMatrix ratio= iterators.next();
+			rightRightMean+= ratio.getRightRightRatio();
+			rightErrorMean+= ratio.getRightErrorRatio();
+			errorRightMean+= ratio.getErrorRightRatio();
+			errorErrorMean+= ratio.getErrorErrorRatio();
+		}
+		rightRightMean= rightRightMean/ groups.size();
+		rightErrorMean= rightErrorMean/ groups.size();
+		errorRightMean= errorRightMean/ groups.size();
+		errorErrorMean= errorErrorMean/ groups.size();
+		//决策轭
+		double predictionRightRight= input.getRightRightRatio()- rightRightMean;
+		double predictionRightError= input.getRightErrorRatio()- rightErrorMean;
+		double predictionErrorRight= input.getErrorRightRatio()- errorRightMean;
+		double predictionErrorError= input.getErrorErrorRatio()- errorErrorMean;
+		//迪摩根轭集
+		double pridictionRight= predictionRightRight+ predictionErrorRight;
+		double pridictionError= predictionRightError+ predictionErrorError;
+		return pridictionRight> pridictionError+ scale? true: false;	
+	}
+	
 	public static String predictionMatrixResult(RatioMatrix input, Map<String, RatioMatrix> groups
 			, double scale) {
 		String groupKey= null;
