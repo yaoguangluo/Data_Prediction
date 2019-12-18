@@ -32,7 +32,13 @@ public class ProbabilityClasification{
 		double predictionErrorError= input.getErrorErrorRatio()- errorErrorMean;
 		//迪摩根轭集 因为考虑到在质量检测项目中的适用性，进行了乘积修改如下。
 		double truePrediction = predictionRightRight* predictionErrorError;
+		if(truePrediction< 0) {
+			return false;
+		}
 		double errorPrediction= predictionRightError* predictionErrorRight;
+		if(errorPrediction< 0) {
+			return false;
+		}
 		double prediction= truePrediction* errorPrediction;
 		return prediction>= 0? true: false;	
 	}
