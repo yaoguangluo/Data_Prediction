@@ -42,6 +42,33 @@ public class SideEnd{
 	}
 	
 	public static List<Position3D> getSideEnd3D(List<Position3D> list, double scale) {
-		return null;
+		Position3D heart= Eclid.findHeartPosition3D(list);
+		Map<Double, Position3D> ratioSide= new HashMap<>();
+		Iterator<Position3D> iterator= list.iterator();
+		while(iterator.hasNext()) {
+			Position3D position3D= iterator.next();
+			double ratio= DistanceRatio.getDistanceRatio3D(heart, position3D);
+			if(ratioSide.containsKey(ratio)) {
+				double newDistance= Distance.getDistance3D(heart, position3D);
+				double oldDistance= Distance.getDistance3D(heart, ratioSide.get(ratio));
+				if(newDistance> oldDistance) {
+					if(newDistance> scale) {
+						ratioSide.put(ratio, position3D);
+					}
+				}
+			}else {
+				double newDistance= Distance.getDistance3D(heart, position3D);
+				if(newDistance> scale) {
+					ratioSide.put(ratio, position3D);
+				}
+			}
+		}
+		//×ª»»
+		List<Position3D> output= new ArrayList<>();
+		Iterator<Double> iteratorKeys= ratioSide.keySet().iterator();
+		while(iteratorKeys.hasNext()) {
+			output.add(ratioSide.get(iteratorKeys.next()));
+		}
+		return output;
 	}
 }
