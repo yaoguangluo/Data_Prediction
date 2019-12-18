@@ -2,8 +2,6 @@ package org.tinos.deta.classification;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import org.tinos.deta.cluster.Ratio;
 import org.tinos.deta.cluster.RatioMatrix;
 //这个函数用于通过概率轭相似度来进行坐标分类
 //思想：贝叶斯
