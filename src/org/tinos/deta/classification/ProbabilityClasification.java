@@ -32,10 +32,11 @@ public class ProbabilityClasification{
 		double predictionRightError= input.getRightErrorRatio()- rightErrorMean;
 		double predictionErrorRight= input.getErrorRightRatio()- errorRightMean;
 		double predictionErrorError= input.getErrorErrorRatio()- errorErrorMean;
-		//迪摩根轭集
-		double pridictionRight= predictionRightRight+ predictionErrorRight;
-		double pridictionError= predictionRightError+ predictionErrorError;
-		return pridictionRight> pridictionError+ scale? true: false;	
+		//迪摩根轭集 因为考虑到在质量检测项目中的适用性，进行了乘积修改如下。
+		double truePrediction = predictionRightRight* predictionErrorError;
+		double errorPrediction= predictionRightError* predictionErrorRight;
+		double prediction= truePrediction* errorPrediction;
+		return prediction>= 0? true: false;	
 	}
 	
 	public static String predictionMatrixResult(RatioMatrix input, Map<String, RatioMatrix> groups
