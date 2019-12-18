@@ -39,8 +39,7 @@ public class ProbabilityClasification{
 		if(errorPrediction< 0) {
 			return false;
 		}
-		double prediction= truePrediction* errorPrediction;
-		return prediction>= 0? true: false;	
+		return true;	
 	}
 	
 	public static String predictionMatrixResult(RatioMatrix input, Map<String, RatioMatrix> groups
