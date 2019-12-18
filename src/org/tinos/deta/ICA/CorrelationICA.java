@@ -15,7 +15,21 @@ public class CorrelationICA{
 			output[i]= originFrequency[i]- compareFrequency[i]< 0? compareFrequency[i]: 0;
 		}
 		return output;	
+	}	
+	
+	public static double[] frequencyUpSplitWithScale(double[] originFrequency, double[] compareFrequency, double scale) {
+		double[] output= new double[originFrequency.length];
+		for(int i= 0; i< originFrequency.length; i++) {
+			output[i]= originFrequency[i]- compareFrequency[i]> scale? originFrequency[i]: 0;
+		}
+		return output;	
 	}
 	
-	
+	public static double[] frequencyDownSplitWithScale(double[] originFrequency, double[] compareFrequency, double scale) {
+		double[] output= new double[originFrequency.length];
+		for(int i= 0; i< originFrequency.length; i++) {
+			output[i]= originFrequency[i]- compareFrequency[i]< scale? compareFrequency[i]: 0;
+		}
+		return output;	
+	}	
 }
