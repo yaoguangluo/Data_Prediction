@@ -9,7 +9,7 @@ import org.tinos.deta.cluster.RatioMatrix;
 //思想：贝叶斯
 //实现：罗瑶光
 public class ProbabilityClasification{
-	public static boolean predictionResult(Ratio input, List<Ratio> right, List<Ratio> error, double scale) {
+	public static boolean predictionResult(RatioMatrix input, List<Ratio> right, List<Ratio> error, double scale) {
 		double rightRightMean= 0;
 		double rightErrorMean= 0;
 		double errorRightMean= 0;
@@ -33,10 +33,10 @@ public class ProbabilityClasification{
 		errorRightMean= errorRightMean/ error.size();
 		errorErrorMean= errorErrorMean/ error.size();
 		//决策轭
-		double predictionRightRight= input.rightRatio- rightRightMean;
-		double predictionRightError= input.errorRatio- rightErrorMean;
-		double predictionErrorRight= input.rightRatio- errorRightMean;
-		double predictionErrorError= input.errorRatio- errorErrorMean;
+		double predictionRightRight= input.getRightRightRatio()- rightRightMean;
+		double predictionRightError= input.getRightErrorRatio()- rightErrorMean;
+		double predictionErrorRight= input.getErrorRightRatio()- errorRightMean;
+		double predictionErrorError= input.getErrorErrorRatio()- errorErrorMean;
 		//迪摩根轭集
 		double pridictionRight= predictionRightRight+ predictionErrorError;
 		double pridictionError= predictionRightError+ predictionErrorRight;
