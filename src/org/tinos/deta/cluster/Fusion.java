@@ -17,79 +17,81 @@ public class Fusion{
 		Iterator<Double> outLoop= groupsHeart.keySet().iterator();
 		//小于精度内融聚
 		//HereOut:
-			while(outLoop.hasNext()) {
-				double out= outLoop.next();
-				Iterator<Double> inLoop= groupsHeart.keySet().iterator();
-				//HereIn:
-					while(inLoop.hasNext()) {
-						double in= inLoop.next();
-						if(out!= in) {
-							Position2D inHeart=	groupsHeart.get(in);
-							//Position2D outHeart= groupsHeart.get(out);
-							//如下因为java的指针被对象化，直接修改入参会产生问题于是新做了outputHeart变量来处理。
-							Position2D outHeart= outputHeart.containsKey(out)
-									? outputHeart.get(out): groupsHeart.get(out);
-									double distance= Distance.getDistance2D(inHeart, outHeart);
-									//比较 是融合
-									if(distance< scale) {
-										//比较有融媒
-										if(output.containsKey(out)) {
-											List<Position2D> outList= output.get(out);
-											//加融媒in to out 删除 in
-											List<Position2D> inList= groups.get(in);
-											Iterator<Position2D> iterator= inList.iterator();
-											while(iterator.hasNext()) {
-												outList.add(iterator.next());
-											}
-											output.put(out, outList);
-											//更新heart
-											Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
-											outputHeart.put(out, newHeart);
-										}else {//比较无融媒
-											//加融媒in to out 加out，删除 in
-											List<Position2D> outList= groups.get(out);
-											//加融媒in to out 删除 in
-											List<Position2D> inList= groups.get(in);
-											Iterator<Position2D> iterator= inList.iterator();
-											while(iterator.hasNext()) {
-												outList.add(iterator.next());
-											}
-											output.put(out, outList);
-											//更新heart
-											Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
-											outputHeart.put(out, newHeart);
-										}
-									}else {//比较 否融合）
-										//比较有融媒
-										if(output.containsKey(out)) {
-											//加融媒 in 删除 in
-											//加融媒in to out 加out，删除 in
-											//加融媒in to out 删除 in
-											if(!output.containsKey(in)) {
-												List<Position2D> inList= groups.get(in);
-												output.put(in, inList);
-												//更新heart
-												outputHeart.put(out, inHeart);	
-											}
-										}else {//比较无融媒
-											//加融媒 out，删除 out，加融媒 in 删除 in
-											if(!output.containsKey(out)) {
-												List<Position2D> outList= groups.get(out);
-												output.put(out, outList);
-												//更新heart
-												outputHeart.put(out, outHeart);	
-											}
-											if(!output.containsKey(in)) {
-												List<Position2D> inList= groups.get(in);
-												output.put(in, inList);
-												//更新heart
-												outputHeart.put(out, inHeart);	
-											}
-										}
-									}
-						}
+		while(outLoop.hasNext()) {
+			double out= outLoop.next();
+			Iterator<Double> inLoop= groupsHeart.keySet().iterator();
+			HereIn:
+				while(inLoop.hasNext()) {
+					double in= inLoop.next();
+					if(out== in|| output.containsKey(in)) {
+						continue HereIn;//out做融聚参照物，in做计算算子。output做观测物。
 					}
-			}
+					Position2D inHeart=	groupsHeart.get(in);
+					//Position2D outHeart= groupsHeart.get(out);
+					//如下因为java的指针被对象化，直接修改入参会产生问题于是新做了outputHeart变量来处理。
+					Position2D outHeart= outputHeart.containsKey(out)
+							? outputHeart.get(out): groupsHeart.get(out);
+							double distance= Distance.getDistance2D(inHeart, outHeart);
+							//比较 是融合
+							if(distance< scale) {
+								//比较有融媒
+								if(output.containsKey(out)) {
+									List<Position2D> outList= output.get(out);
+									//加融媒in to out 删除 in
+									List<Position2D> inList= groups.get(in);
+									Iterator<Position2D> iterator= inList.iterator();
+									while(iterator.hasNext()) {
+										outList.add(iterator.next());
+									}
+									output.put(out, outList);
+									//更新heart
+									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
+									outputHeart.put(out, newHeart);
+								}else {//比较无融媒
+									//加融媒in to out 加out，删除 in
+									List<Position2D> outList= groups.get(out);
+									//加融媒in to out 删除 in
+									List<Position2D> inList= groups.get(in);
+									Iterator<Position2D> iterator= inList.iterator();
+									while(iterator.hasNext()) {
+										outList.add(iterator.next());
+									}
+									output.put(out, outList);
+									//更新heart
+									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
+									outputHeart.put(out, newHeart);
+								}
+							}else {//比较 否融合）
+								//比较有融媒
+								if(output.containsKey(out)) {
+									//加融媒 in 删除 in
+									//加融媒in to out 加out，删除 in
+									//加融媒in to out 删除 in
+									if(!output.containsKey(in)) {
+										List<Position2D> inList= groups.get(in);
+										output.put(in, inList);
+										//更新heart
+										outputHeart.put(out, inHeart);	
+									}
+								}else {//比较无融媒
+									//加融媒 out，删除 out，加融媒 in 删除 in
+									if(!output.containsKey(out)) {
+										List<Position2D> outList= groups.get(out);
+										output.put(out, outList);
+										//更新heart
+										outputHeart.put(out, outHeart);	
+									}
+									if(!output.containsKey(in)) {
+										List<Position2D> inList= groups.get(in);
+										output.put(in, inList);
+										//更新heart
+										outputHeart.put(out, inHeart);	
+									}
+								}
+							}
+				}
+
+		}
 		return output;	
 	}
 //	public static Map<Double, List<Position2D>> fusionPosition2DwithHeart
