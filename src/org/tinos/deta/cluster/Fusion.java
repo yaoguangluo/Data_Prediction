@@ -81,4 +81,76 @@ public class Fusion{
 		}
 		return output;	
 	}
+	
+	public static Map<Double, List<Position3D>> fusionPosition3DwithHeart
+	(Map<Double, List<Position3D>> groups, Map<Double, Position3D> groupsHeart, double scale){
+		//初始
+		Map<Double, List<Position3D>> output= new HashMap<>();
+		Map<Double, Position3D> outputHeart= new HashMap<>();
+		//逐团比较重心距离
+		Iterator<Double> outLoop= groupsHeart.keySet().iterator();
+		Map<Double, Double> isDelete= new HashMap<>();
+		//小于精度内融聚
+		//HereOut:
+		while(outLoop.hasNext()) {
+			double out= outLoop.next();
+			Iterator<Double> inLoop= groupsHeart.keySet().iterator();
+			HereIn:
+				while(inLoop.hasNext()) {
+					double in= inLoop.next();
+					if(out== in|| output.containsKey(in)|| isDelete.containsKey(in)) {
+						continue HereIn;//out做融聚参照物，in做计算算子。output做观测物。
+					}
+					Position3D inHeart=	groupsHeart.get(in);
+					//Position3D outHeart= groupsHeart.get(out);
+					//如下因为java的指针被对象化，直接修改入参会产生问题于是新做了outputHeart变量来处理。
+					Position3D outHeart= outputHeart.containsKey(out)
+							? outputHeart.get(out): groupsHeart.get(out);
+							double distance= Distance.getDistance3D(inHeart, outHeart);
+							//比较 是融合
+							if(distance< scale) {
+								List<Position3D> outList;
+								//比较有融媒
+								if(output.containsKey(out)) {
+									outList= output.get(out);
+								}else {//比较无融媒
+									//加融媒in to out 加out，删除 in
+									outList= groups.get(out);
+								}
+								//加融媒in to out 删除 in
+								List<Position3D> inList= groups.get(in);
+								Iterator<Position3D> iterator= inList.iterator();
+								while(iterator.hasNext()) {
+									outList.add(iterator.next());
+								}
+								output.put(out, outList);
+								//更新heart
+								Position3D newHeart= Eclid.findCryptionPosition3D(outHeart, inHeart);
+								outputHeart.put(out, newHeart);
+								isDelete.put(in, in);
+							}else {//比较 否融合）
+								//比较有融媒
+								if(!output.containsKey(out)) {//比较无融媒
+									//加融媒 out，删除 out，加融媒 in 删除 in
+									if(!output.containsKey(out)) {
+										List<Position3D> outList= groups.get(out);
+										output.put(out, outList);
+										//更新heart
+										outputHeart.put(out, outHeart);	
+										isDelete.put(out, out);
+									}
+								}
+								if(!output.containsKey(in)) {
+									List<Position3D> inList= groups.get(in);
+									output.put(in, inList);
+									//更新heart
+									outputHeart.put(in, inHeart);
+									isDelete.put(in, in);
+								}
+							}
+				}
+
+		}
+		return output;	
+	}
 } 
