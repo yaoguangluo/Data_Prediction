@@ -37,47 +37,28 @@ public class Fusion{
 							double distance= Distance.getDistance2D(inHeart, outHeart);
 							//比较 是融合
 							if(distance< scale) {
+								List<Position2D> outList;
 								//比较有融媒
 								if(output.containsKey(out)) {
-									List<Position2D> outList= output.get(out);
-									//加融媒in to out 删除 in
-									List<Position2D> inList= groups.get(in);
-									Iterator<Position2D> iterator= inList.iterator();
-									while(iterator.hasNext()) {
-										outList.add(iterator.next());
-									}
-									output.put(out, outList);
-									//更新heart
-									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
-									outputHeart.put(out, newHeart);
-									isDelete.put(in, in);
+									outList= output.get(out);
 								}else {//比较无融媒
 									//加融媒in to out 加out，删除 in
-									List<Position2D> outList= groups.get(out);
-									//加融媒in to out 删除 in
-									List<Position2D> inList= groups.get(in);
-									Iterator<Position2D> iterator= inList.iterator();
-									while(iterator.hasNext()) {
-										outList.add(iterator.next());
-									}
-									output.put(out, outList);
-									//更新heart
-									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
-									outputHeart.put(out, newHeart);
-									isDelete.put(in, in);
+									outList= groups.get(out);
 								}
+								//加融媒in to out 删除 in
+								List<Position2D> inList= groups.get(in);
+								Iterator<Position2D> iterator= inList.iterator();
+								while(iterator.hasNext()) {
+									outList.add(iterator.next());
+								}
+								output.put(out, outList);
+								//更新heart
+								Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
+								outputHeart.put(out, newHeart);
+								isDelete.put(in, in);
 							}else {//比较 否融合）
 								//比较有融媒
-								if(output.containsKey(out)) {
-									//加融媒 in 删除 in
-									if(!output.containsKey(in)) {
-										List<Position2D> inList= groups.get(in);
-										output.put(in, inList);
-										//更新heart
-										outputHeart.put(in, inHeart);
-										isDelete.put(in, in);
-									}
-								}else {//比较无融媒
+								if(!output.containsKey(out)) {//比较无融媒
 									//加融媒 out，删除 out，加融媒 in 删除 in
 									if(!output.containsKey(out)) {
 										List<Position2D> outList= groups.get(out);
@@ -86,13 +67,13 @@ public class Fusion{
 										outputHeart.put(out, outHeart);	
 										isDelete.put(out, out);
 									}
-									if(!output.containsKey(in)) {
-										List<Position2D> inList= groups.get(in);
-										output.put(in, inList);
-										//更新heart
-										outputHeart.put(in, inHeart);
-										isDelete.put(in, in);
-									}
+								}
+								if(!output.containsKey(in)) {
+									List<Position2D> inList= groups.get(in);
+									output.put(in, inList);
+									//更新heart
+									outputHeart.put(in, inHeart);
+									isDelete.put(in, in);
 								}
 							}
 				}
