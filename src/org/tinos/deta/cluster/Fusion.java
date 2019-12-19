@@ -29,45 +29,56 @@ public class Fusion{
 							//如下因为java的指针被对象化，直接修改入参会产生问题于是新做了outputHeart变量来处理。
 							Position2D outHeart= outputHeart.containsKey(out)
 									? outputHeart.get(out): groupsHeart.get(out);
-							double distance= Distance.getDistance2D(inHeart, outHeart);
-							if(distance< scale) {
-								//fusion
-								if(!output.containsKey(out)) {
-									if(!groups.containsKey(out)) {
-										continue HereOut;
+									double distance= Distance.getDistance2D(inHeart, outHeart);
+									if(distance< scale) {
+										//fusion
+										if(!output.containsKey(out)) {
+											if(!groups.containsKey(out)) {
+												continue HereOut;
+											}
+											if(!groups.containsKey(in)) {
+												continue HereIn;
+											}
+											List<Position2D> outList;
+											//区别输出和原数组取值
+											if(!output.containsKey(out)) {
+												outList= groups.get(out);
+											}else {
+												outList= output.get(out);
+											}
+											List<Position2D> inList= groups.get(in);
+											Iterator<Position2D> iterator= inList.iterator();
+											while(iterator.hasNext()) {
+												outList.add(iterator.next());
+											}
+											output.put(out, outList);
+											//更新heart
+											Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
+											outputHeart.put(out, newHeart);
+											//剔除以融聚对象
+											groups.remove(in);	
+										}else {
+											//加新的只加 out
+											List<Position2D> inList= groups.get(in);
+											List<Position2D> outList= groups.get(out);
+											if(!output.containsKey(out)) {
+												output.put(out, outList);
+												//更新heart
+												Position2D newHeart= groupsHeart.get(out); 
+												outputHeart.put(out, newHeart);
+												//剔除已融聚对象
+												groups.remove(out);
+											}else {
+												output.put(in, inList);	
+												//更新heart
+												Position2D newHeart= groupsHeart.get(in); 
+												outputHeart.put(in, newHeart);
+												//剔除已融聚对象
+												groups.remove(in);
+											}
+
+										}
 									}
-									if(!groups.containsKey(in)) {
-										continue HereIn;
-									}
-									List<Position2D> outList= groups.get(out);
-									List<Position2D> inList= groups.get(in);
-									Iterator<Position2D> iterator= inList.iterator();
-									while(iterator.hasNext()) {
-										outList.add(iterator.next());
-									}
-									output.put(out, outList);
-									//更新heart
-									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
-									outputHeart.put(out, newHeart);
-									//剔除以融聚对象
-									groups.remove(in);
-								}else {
-									List<Position2D> outList= output.get(out);
-									List<Position2D> inList= groups.get(in);
-									Iterator<Position2D> iterator= inList.iterator();
-									while(iterator.hasNext()) {
-										outList.add(iterator.next());
-									}
-									output.put(out, outList);
-									//更新heart
-									Position2D outHeartForOutput= outputHeart.get(out); 
-									Position2D newHeart= Eclid.findCryptionPosition2D(outHeartForOutput, inHeart);
-									outputHeart.put(out, newHeart);
-									//剔除以融聚对象
-									groups.remove(in);
-								}
-								groups.get(out);
-							}
 						}
 					}
 			}
