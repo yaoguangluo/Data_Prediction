@@ -16,7 +16,7 @@ public class Fusion{
 		//逐团比较重心距离
 		Iterator<Double> outLoop= groupsHeart.keySet().iterator();
 		Iterator<Double> inLoop= groupsHeart.keySet().iterator();
-		//小于进度内融聚
+		//小于精度内融聚
 		HereOut:
 			while(outLoop.hasNext()) {
 				double out= outLoop.next();
@@ -25,7 +25,10 @@ public class Fusion{
 						double in= inLoop.next();
 						if(out!= in) {
 							Position2D inHeart=	groupsHeart.get(in);
-							Position2D outHeart= groupsHeart.get(out);
+							//Position2D outHeart= groupsHeart.get(out);
+							//如下因为java的指针被对象化，直接修改入参会产生问题于是新做了outputHeart变量来处理。
+							Position2D outHeart= outputHeart.containsKey(out)
+									? outputHeart.get(out): groupsHeart.get(out);
 							double distance= Distance.getDistance2D(inHeart, outHeart);
 							if(distance< scale) {
 								//fusion
