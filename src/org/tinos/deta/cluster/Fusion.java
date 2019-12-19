@@ -17,6 +17,7 @@ public class Fusion{
 		Map<Double, Position2D> outputHeart= new HashMap<>();
 		//逐团比较重心距离
 		Iterator<Double> outLoop= groupsHeart.keySet().iterator();
+		Map<Double, Double> isDelete= new HashMap<>();
 		//小于精度内融聚
 		//HereOut:
 		while(outLoop.hasNext()) {
@@ -25,7 +26,7 @@ public class Fusion{
 			HereIn:
 				while(inLoop.hasNext()) {
 					double in= inLoop.next();
-					if(out== in|| output.containsKey(in)) {
+					if(out== in|| output.containsKey(in)|| isDelete.containsKey(in)) {
 						continue HereIn;//out做融聚参照物，in做计算算子。output做观测物。
 					}
 					Position2D inHeart=	groupsHeart.get(in);
@@ -49,6 +50,7 @@ public class Fusion{
 									//更新heart
 									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
 									outputHeart.put(out, newHeart);
+									isDelete.put(in, in);
 								}else {//比较无融媒
 									//加融媒in to out 加out，删除 in
 									List<Position2D> outList= groups.get(out);
@@ -62,6 +64,7 @@ public class Fusion{
 									//更新heart
 									Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
 									outputHeart.put(out, newHeart);
+									isDelete.put(in, in);
 								}
 							}else {//比较 否融合）
 								//比较有融媒
@@ -71,7 +74,8 @@ public class Fusion{
 										List<Position2D> inList= groups.get(in);
 										output.put(in, inList);
 										//更新heart
-										outputHeart.put(in, inHeart);	
+										outputHeart.put(in, inHeart);
+										isDelete.put(in, in);
 									}
 								}else {//比较无融媒
 									//加融媒 out，删除 out，加融媒 in 删除 in
@@ -80,12 +84,14 @@ public class Fusion{
 										output.put(out, outList);
 										//更新heart
 										outputHeart.put(out, outHeart);	
+										isDelete.put(out, out);
 									}
 									if(!output.containsKey(in)) {
 										List<Position2D> inList= groups.get(in);
 										output.put(in, inList);
 										//更新heart
-										outputHeart.put(in, inHeart);	
+										outputHeart.put(in, inHeart);
+										isDelete.put(in, in);
 									}
 								}
 							}
