@@ -16,11 +16,11 @@ public class Fusion{
 		//逐团比较重心距离
 		Iterator<Double> outLoop= groupsHeart.keySet().iterator();
 		//小于精度内融聚
-		HereOut:
+		//HereOut:
 			while(outLoop.hasNext()) {
 				double out= outLoop.next();
 				Iterator<Double> inLoop= groupsHeart.keySet().iterator();
-				HereIn:
+				//HereIn:
 					while(inLoop.hasNext()) {
 						double in= inLoop.next();
 						if(out!= in) {
@@ -64,19 +64,27 @@ public class Fusion{
 										if(output.containsKey(out)) {
 											//加融媒 in 删除 in
 											//加融媒in to out 加out，删除 in
-											List<Position2D> outList= groups.get(out);
 											//加融媒in to out 删除 in
-											List<Position2D> inList= groups.get(in);
-											Iterator<Position2D> iterator= inList.iterator();
-											while(iterator.hasNext()) {
-												outList.add(iterator.next());
+											if(!output.containsKey(in)) {
+												List<Position2D> inList= groups.get(in);
+												output.put(in, inList);
+												//更新heart
+												outputHeart.put(out, inHeart);	
 											}
-											output.put(out, outList);
-											//更新heart
-											Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
-											outputHeart.put(out, newHeart);
 										}else {//比较无融媒
-										//加融媒 out，删除 out，加融媒 in 删除 in
+											//加融媒 out，删除 out，加融媒 in 删除 in
+											if(!output.containsKey(out)) {
+												List<Position2D> outList= groups.get(out);
+												output.put(out, outList);
+												//更新heart
+												outputHeart.put(out, outHeart);	
+											}
+											if(!output.containsKey(in)) {
+												List<Position2D> inList= groups.get(in);
+												output.put(in, inList);
+												//更新heart
+												outputHeart.put(out, inHeart);	
+											}
 										}
 									}
 						}
