@@ -50,6 +50,7 @@ public class Fissile{
 							continue Here;
 						}	
 					}
+					//ÐÂ´æ
 					if(!isFind) {
 						List<Position2D> list= new ArrayList<>();
 						list.add(position2D);

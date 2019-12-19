@@ -15,11 +15,11 @@ public class Fusion{
 		Map<Double, Position2D> outputHeart= new HashMap<>();
 		//逐团比较重心距离
 		Iterator<Double> outLoop= groupsHeart.keySet().iterator();
-		Iterator<Double> inLoop= groupsHeart.keySet().iterator();
 		//小于精度内融聚
 		HereOut:
 			while(outLoop.hasNext()) {
 				double out= outLoop.next();
+				Iterator<Double> inLoop= groupsHeart.keySet().iterator();
 				HereIn:
 					while(inLoop.hasNext()) {
 						double in= inLoop.next();
@@ -70,6 +70,7 @@ public class Fusion{
 											outputHeart.put(out, newHeart);
 											//剔除已融聚对象
 											groups.remove(out);
+											groupsHeart.remove(out);
 										}else {
 											output.put(in, inList);	
 											//更新heart
@@ -77,6 +78,7 @@ public class Fusion{
 											outputHeart.put(in, newHeart);
 											//剔除已融聚对象
 											groups.remove(in);
+											groupsHeart.remove(in);
 										}
 
 									}
