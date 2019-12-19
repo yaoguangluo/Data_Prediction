@@ -34,7 +34,8 @@ public class Fissile{
 					double distance= Distance.getDistance2D(currenctHeart, position2D);
 					if(distance< scale) {
 						//融入得到新的重心
-						Position2D newHeart=  Eclid.findCryptionPosition2D(currenctHeart, position2D);
+						@SuppressWarnings("unused")
+						Position2D newHeart= Eclid.findCryptionPosition2D(currenctHeart, position2D);
 						//删除当前增加坐标集，更新坐标集
 						
 						//删除当前重心数据，更新重心数据
