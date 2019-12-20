@@ -10,6 +10,7 @@ import org.tinos.deta.basic.Eclid;
 import org.tinos.deta.classification.Fissile;
 import org.tinos.deta.cluster.Fusion;
 import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.isolation.Isolation;
 
 public class Demo{
 	public static void main(String[] argv) {
@@ -60,8 +61,9 @@ public class Demo{
 //				System.out.println(temp1.getX()+ ":"+ temp1.getY());
 //			}	
 //		}
-		//处理fusion 先 fissile 采样
-		Map<Double, List<Position2D>> output= Fissile.fissilePosition2D(input, 13);
+		
+		//处理商旅簇isolation
+		Map<Double, List<Position2D>> output= Isolation.getTSPIsolationGroups2D(input, 14);
 		Iterator<Double> iterator= output.keySet().iterator();
 		while(iterator.hasNext()) {
 			double temp= iterator.next();
@@ -73,27 +75,41 @@ public class Demo{
 				System.out.println(temp1.getX()+ ":"+ temp1.getY());
 			}	
 		}
-		//然后fusion 1 观测heart
-		Map<Double, Position2D> groupsHeart=new HashMap<>();
-		Iterator<Double> iterator2= output.keySet().iterator();
-		while(iterator2.hasNext()) {
-			double temp= iterator2.next();
-			Position2D heartTemp= Eclid.findHeartPosition2D(output.get(temp));
-			System.out.println("hearts->"+heartTemp.getX()+ ":"+ heartTemp.getY());
-			groupsHeart.put(temp, heartTemp);
-		}
-		//2观测结果 用10 和11分别带入可测试。
-		Map<Double, List<Position2D>> fusion= Fusion.fusionPosition2DwithHeart(output, groupsHeart, 11);
-		Iterator<Double> iterator3= fusion.keySet().iterator();
-		while(iterator3.hasNext()) {
-			double temp= iterator3.next();
-			System.out.println();
-			System.out.println(temp);
-			Iterator<Position2D> iterator1= output.get(temp).iterator();
-			while(iterator1.hasNext()) {
-				Position2D temp1= iterator1.next();
-				System.out.println(temp1.getX()+ ":"+ temp1.getY());
-			}	
-		}
+		
+		//处理fusion 先 fissile 采样
+//		Map<Double, List<Position2D>> output= Fissile.fissilePosition2D(input, 13);
+//		Iterator<Double> iterator= output.keySet().iterator();
+//		while(iterator.hasNext()) {
+//			double temp= iterator.next();
+//			System.out.println();
+//			System.out.println(temp);
+//			Iterator<Position2D> iterator1= output.get(temp).iterator();
+//			while(iterator1.hasNext()) {
+//				Position2D temp1= iterator1.next();
+//				System.out.println(temp1.getX()+ ":"+ temp1.getY());
+//			}	
+//		}
+//		//然后fusion 1 观测heart
+//		Map<Double, Position2D> groupsHeart=new HashMap<>();
+//		Iterator<Double> iterator2= output.keySet().iterator();
+//		while(iterator2.hasNext()) {
+//			double temp= iterator2.next();
+//			Position2D heartTemp= Eclid.findHeartPosition2D(output.get(temp));
+//			System.out.println("hearts->"+heartTemp.getX()+ ":"+ heartTemp.getY());
+//			groupsHeart.put(temp, heartTemp);
+//		}
+//		//2观测结果 用10 和11分别带入可测试。
+//		Map<Double, List<Position2D>> fusion= Fusion.fusionPosition2DwithHeart(output, groupsHeart, 11);
+//		Iterator<Double> iterator3= fusion.keySet().iterator();
+//		while(iterator3.hasNext()) {
+//			double temp= iterator3.next();
+//			System.out.println();
+//			System.out.println(temp);
+//			Iterator<Position2D> iterator1= output.get(temp).iterator();
+//			while(iterator1.hasNext()) {
+//				Position2D temp1= iterator1.next();
+//				System.out.println(temp1.getX()+ ":"+ temp1.getY());
+//			}	
+//		}
 	}
 }

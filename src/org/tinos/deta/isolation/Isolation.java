@@ -32,6 +32,7 @@ public class Isolation{
 			double j= 0;
 			Here:
 				while(inIterator.hasNext()) {
+					Position2D inPosition2D= inIterator.next();
 					j++;
 					//¼ÆËã
 					if(isDelete[(int)i- 1][(int)j- 1]|| i== j) {
@@ -40,7 +41,6 @@ public class Isolation{
 					//éîÏû
 					isDelete[(int)i- 1][(int)j- 1]= true;
 					isDelete[(int)j- 1][(int)i- 1]= true;
-					Position2D inPosition2D= inIterator.next();
 					double distance= Distance.getDistance2D(position2D, inPosition2D);
 					if(distance> scale) {
 						continue Here;
