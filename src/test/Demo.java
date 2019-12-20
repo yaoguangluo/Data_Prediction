@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.tinos.deta.basic.Eclid;
 import org.tinos.deta.classification.Fissile;
+import org.tinos.deta.classification.PositionClasification;
 import org.tinos.deta.cluster.Fusion;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.isolation.ForestIsolation;
@@ -64,19 +65,19 @@ public class Demo{
 //			}	
 //		}
 		
-		//处理商旅森林 isolation
-		Map<Double, List<Position2D>> output= ForestIsolation.getTSPForestIsolationGroups2D(input, 12);
-		Iterator<Double> iterator= output.keySet().iterator();
-		while(iterator.hasNext()) {
-			double temp= iterator.next();
-			System.out.println();
-			System.out.println(temp);
-			Iterator<Position2D> iterator1= output.get(temp).iterator();
-			while(iterator1.hasNext()) {
-				Position2D temp1= iterator1.next();
-				System.out.println(temp1.getX()+ ":"+ temp1.getY());
-			}	
-		}
+//		//处理商旅森林 isolation
+//		Map<Double, List<Position2D>> output= ForestIsolation.getTSPForestIsolationGroups2D(input, 12);
+//		Iterator<Double> iterator= output.keySet().iterator();
+//		while(iterator.hasNext()) {
+//			double temp= iterator.next();
+//			System.out.println();
+//			System.out.println(temp);
+//			Iterator<Position2D> iterator1= output.get(temp).iterator();
+//			while(iterator1.hasNext()) {
+//				Position2D temp1= iterator1.next();
+//				System.out.println(temp1.getX()+ ":"+ temp1.getY());
+//			}	
+//		}
 		
 //		//处理商旅簇isolation
 //				Map<Double, List<Position2D>> output= Isolation.getTSPIsolationGroups2D(input, 12);
@@ -127,5 +128,24 @@ public class Demo{
 //				System.out.println(temp1.getX()+ ":"+ temp1.getY());
 //			}	
 //		}
+		Position2D position2D5= new Position2D();
+		position2D5.setX(15);
+		position2D5.setY(25);
+	
+		Map<Double, List<Position2D>>inputMap= new HashMap<>();
+		inputMap.put(0.0, input);
+		Map<Double, List<Position2D>>output= PositionClasification.addNewPositionWithoutHeart(inputMap, position2D5, 29);//采样距离28.4
+		
+		Iterator<Double> iterator= output.keySet().iterator();
+		while(iterator.hasNext()) {
+			double temp= iterator.next();
+			System.out.println();
+			System.out.println(temp);
+			Iterator<Position2D> iterator1= output.get(temp).iterator();
+			while(iterator1.hasNext()) {
+				Position2D temp1= iterator1.next();
+				System.out.println(temp1.getX()+ ":"+ temp1.getY());
+			}	
+		}
 	}
 }

@@ -1,4 +1,5 @@
 package org.tinos.deta.classification;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -10,64 +11,50 @@ import org.tinos.deta.demension.Position2D;
 //思想：欧基里德
 //实现：罗瑶光
 public class PositionClasification{
-	public static Map<String, List<Position2D>> addNewPositionWithoutHeart(Map<String
-			, List<Position2D>> groups, Position2D position2D){
-		double shortestDistance= 0;
-		String predictionGroup= null;
-		Iterator<String> iterator= groups.keySet().iterator();
-		boolean isFirst= true;
+	public static Map<Double, List<Position2D>> addNewPositionWithoutHeart(Map<Double, List<Position2D>> groups
+			, Position2D position2D, double scaleDistance){
+		double groupKey = 0;
+		Iterator<Double> iterator= groups.keySet().iterator();
 		while(iterator.hasNext()) {
-			String groupKey= iterator.next();
+			groupKey= iterator.next();
 			List<Position2D> group= groups.get(groupKey);
 			Position2D heart= Eclid.findHeartPosition2D(group);
 			double distance= Distance.getDistance2D(heart, position2D);
-			if(isFirst) {
-				isFirst= !isFirst;
-				shortestDistance= distance;
-			}
-			if(shortestDistance< distance) {
-				shortestDistance= distance;
-				predictionGroup= groupKey;
+			if(scaleDistance< distance) {
+				group.add(position2D);
+				groups.put(groupKey, group);
+				return groups;
 			}
 		}
-		//添加坐标
-		if(null!= predictionGroup) {
-			List<Position2D> group= groups.get(predictionGroup);
-			group.add(position2D);
-			groups.put(predictionGroup, group);
-		}
-		return groups;	
+		List<Position2D> group= new ArrayList<Position2D>() ;
+		group.add(position2D);
+		groups.put(groupKey+1, group);
+		return groups;
 	}
 	
-	public static Map<String, List<Position2D>> addNewPositionWithHeart(Map<String
-			, List<Position2D>> groups, Position2D position2D, Map<String, Position2D> hearts){
-		double shortestDistance= 0;
-		String predictionGroup= null;
-		Iterator<String> iterator= groups.keySet().iterator();
-		boolean isFirst= true;
+	public static Map<Double, List<Position2D>> addNewPositionWithHeart(Map<Double
+			, List<Position2D>> groups, Position2D position2D, Map<Double, Position2D> hearts, double scaleDistance){	
+		double groupKey= 0;
+		Iterator<Double> iterator= groups.keySet().iterator();
 		while(iterator.hasNext()) {
-			String groupKey= iterator.next();
+			groupKey= iterator.next();
+			List<Position2D> group= groups.get(groupKey);
 			Position2D heart= hearts.get(groupKey);
 			double distance= Distance.getDistance2D(heart, position2D);
-			if(isFirst) {
-				isFirst= !isFirst;
-				shortestDistance= distance;
-			}
-			if(shortestDistance< distance) {
-				shortestDistance= distance;
-				predictionGroup= groupKey;
+			if(scaleDistance< distance) {
+				group.add(position2D);
+				groups.put(groupKey, group);
+				//hearts熵增
+				Position2D CryptHeart= Eclid.findCryptionPosition2D(heart, position2D);
+				hearts.put(groupKey, CryptHeart);
+				return groups;
 			}
 		}
-		//添加坐标
-		if(null!= predictionGroup) {
-			List<Position2D> group= groups.get(predictionGroup);
-			group.add(position2D);
-			groups.put(predictionGroup, group);
-			//hearts熵增
-			Position2D heart= hearts.get(predictionGroup);
-			Position2D CryptHeart= Eclid.findCryptionPosition2D(heart, position2D);
-			hearts.put(predictionGroup, CryptHeart);
-		}
-		return groups;	
+		List<Position2D> group= new ArrayList<Position2D>() ;
+		group.add(position2D);
+		groups.put(groupKey+1, group);
+		//heart
+		hearts.put(groupKey+1, position2D);
+		return groups;
 	}
 }
