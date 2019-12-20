@@ -13,6 +13,7 @@ import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.isolation.ForestIsolation;
 import org.tinos.deta.isolation.Isolation;
 
+@SuppressWarnings("unused")
 public class Demo{
 	public static void main(String[] argv) {
 		//³õÊ¼10¸ö×ø±ê
