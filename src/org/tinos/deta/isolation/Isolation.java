@@ -32,8 +32,8 @@ public class Isolation{
 			double j= 0;
 			Here:
 				while(inIterator.hasNext()) {
-					Position2D inPosition2D= inIterator.next();
 					j++;
+					Position2D inPosition2D= inIterator.next();
 					//º∆À„
 					if(isDelete[(int)i- 1][(int)j- 1]|| i== j) {
 						continue Here;
@@ -51,6 +51,7 @@ public class Isolation{
 						list= output.get(i);
 					}else {
 						list= new ArrayList<>();
+						list.add(position2D);
 					}
 					list.add(inPosition2D);
 					output.put(i, list);
@@ -76,6 +77,7 @@ public class Isolation{
 			Here:
 				while(inIterator.hasNext()) {
 					j++;
+					Position3D inPosition3D= inIterator.next();
 					//º∆À„
 					if(isDelete[(int)i- 1][(int)j- 1]|| i== j) {
 						continue Here;
@@ -83,7 +85,6 @@ public class Isolation{
 					//ÈÓœ˚
 					isDelete[(int)i- 1][(int)j- 1]= true;
 					isDelete[(int)j- 1][(int)i- 1]= true;
-					Position3D inPosition3D= inIterator.next();
 					double distance= Distance.getDistance3D(position3D, inPosition3D);
 					if(distance> scale) {
 						continue Here;
@@ -94,6 +95,7 @@ public class Isolation{
 						list= output.get(i);
 					}else {
 						list= new ArrayList<>();
+						list.add(position3D);
 					}
 					list.add(inPosition3D);
 					output.put(i, list);

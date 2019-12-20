@@ -27,6 +27,7 @@ public class forestIsolation{
 			Here:
 				while(inIterator.hasNext()) {
 					j++;
+					Position2D inPosition2D= inIterator.next();
 					//计算
 					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j]) {
 						continue Here;
@@ -34,7 +35,6 @@ public class forestIsolation{
 					//轭消
 					isDelete[(int)i- 1][(int)j- 1]= true;
 					isDelete[(int)j- 1][(int)i- 1]= true;
-					Position2D inPosition2D= inIterator.next();
 					double distance= Distance.getDistance2D(position2D, inPosition2D);
 					if(distance> scale) {
 						continue Here;
@@ -45,6 +45,7 @@ public class forestIsolation{
 						list= output.get(i);
 					}else {
 						list= new ArrayList<>();
+						list.add(position2D);
 					}
 					list.add(inPosition2D);
 					output.put(i, list);
@@ -72,6 +73,7 @@ public class forestIsolation{
 			Here:
 				while(inIterator.hasNext()) {
 					j++;
+					Position3D inPosition3D= inIterator.next();
 					//计算
 					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j]) {
 						continue Here;
@@ -79,7 +81,6 @@ public class forestIsolation{
 					//轭消
 					isDelete[(int)i- 1][(int)j- 1]= true;
 					isDelete[(int)j- 1][(int)i- 1]= true;
-					Position3D inPosition3D= inIterator.next();
 					double distance= Distance.getDistance3D(position3D, inPosition3D);
 					if(distance> scale) {
 						continue Here;
@@ -90,6 +91,7 @@ public class forestIsolation{
 						list= output.get(i);
 					}else {
 						list= new ArrayList<>();
+						list.add(position3D);
 					}
 					list.add(inPosition3D);
 					output.put(i, list);
