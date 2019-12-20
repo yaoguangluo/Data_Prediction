@@ -154,7 +154,6 @@ public class Fusion{
 								}
 							}
 				}
-
 		}
 		return output;	
 	}
