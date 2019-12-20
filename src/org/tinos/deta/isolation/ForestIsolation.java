@@ -14,8 +14,6 @@ public class ForestIsolation{
 	//Application Yaoguang.Luo 
 	//适用于 最短路径，最小距离，商旅分析预测，等项目中
 	public static Map<Double, List<Position2D>> getTSPForestIsolationGroups2D(List<Position2D> groups, double scale) {
-		boolean[][] isDelete= new boolean[groups.size()][groups.size()];
-		boolean[] isRootDelete= new boolean[groups.size()];
 		Map<Double, List<Position2D>> output= new HashMap<>(); 
 		Iterator<Position2D> iterator= groups.iterator();
 		double i= 0;
@@ -29,12 +27,9 @@ public class ForestIsolation{
 					j++;
 					Position2D inPosition2D= inIterator.next();
 					//计算
-					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j- 1]) {
+					if(i== j) {
 						continue Here;
 					}
-					//轭消
-					isDelete[(int)i- 1][(int)j- 1]= true;
-					isDelete[(int)j- 1][(int)i- 1]= true;
 					double distance= Distance.getDistance2D(position2D, inPosition2D);
 					if(distance> scale) {
 						continue Here;
@@ -50,7 +45,6 @@ public class ForestIsolation{
 					list.add(inPosition2D);
 					output.put(i, list);
 				}
-			isRootDelete[(int)i- 1]= true;
 		}
 		return output;	
 	}
@@ -60,8 +54,6 @@ public class ForestIsolation{
 	//Application Yaoguang.Luo 
 	//适用于 最短路径，最小距离，商旅分析预测，等项目中
 	public static Map<Double, List<Position3D>> getTSPIsolationGroups3D(List<Position3D> groups, double scale) {
-		boolean[][] isDelete= new boolean[groups.size()][groups.size()];
-		boolean[] isRootDelete= new boolean[groups.size()];
 		Map<Double, List<Position3D>> output= new HashMap<>(); 
 		Iterator<Position3D> iterator= groups.iterator();
 		double i= 0;
@@ -75,12 +67,9 @@ public class ForestIsolation{
 					j++;
 					Position3D inPosition3D= inIterator.next();
 					//计算
-					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j- 1]) {
+					if(i== j) {
 						continue Here;
 					}
-					//轭消
-					isDelete[(int)i- 1][(int)j- 1]= true;
-					isDelete[(int)j- 1][(int)i- 1]= true;
 					double distance= Distance.getDistance3D(position3D, inPosition3D);
 					if(distance> scale) {
 						continue Here;
@@ -96,7 +85,6 @@ public class ForestIsolation{
 					list.add(inPosition3D);
 					output.put(i, list);
 				}
-			isRootDelete[(int)i- 1]= true;
 		}
 		return output;	
 	}
