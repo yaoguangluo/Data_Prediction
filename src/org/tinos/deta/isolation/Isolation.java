@@ -59,7 +59,7 @@ public class Isolation{
 		return output;	
 	}
 
-	//带精度 2维(非欧拉权距)商旅路径团簇 隔离 算法
+	//带精度 3维(非欧拉权距)商旅路径团簇 隔离 算法
 	//Theory 《神经网络: 权距》，欧基里德， Yaoguang.Luo 20191220
 	//Application Yaoguang.Luo 
 	//适用于 最短路径，最小距离，商旅分析预测，等项目中
