@@ -1,4 +1,4 @@
-package org.tinos.deta.cluster;
+package org.tinos.deta.basic;
 //Theory: ±´Ò¶Ë¹
 //Application: Yaoguang.luo
 public class Ratio{

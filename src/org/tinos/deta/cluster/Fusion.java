@@ -3,6 +3,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.tinos.deta.basic.Distance;
+import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.demension.Position3D;
 //task 20191220-20191222 daytime
 //通过scale 距离来进行坐标团集合 融聚。
 //Theory yaoguang.luo 20191219， 欧基里德

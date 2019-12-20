@@ -1,6 +1,9 @@
-package org.tinos.deta.cluster;
+package org.tinos.deta.basic;
 import java.util.Iterator;
 import java.util.List;
+
+import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.demension.Position3D;
 //Theory: Eclid
 //Application: Yaoguang.luo
 public class Eclid{

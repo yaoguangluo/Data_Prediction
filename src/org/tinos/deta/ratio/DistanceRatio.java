@@ -1,6 +1,6 @@
 package org.tinos.deta.ratio;
-import org.tinos.deta.cluster.Position2D;
-import org.tinos.deta.cluster.Position3D;
+import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.demension.Position3D;
 //Theory: Yaoguang.luo
 //一种仅仅通过坐标差值叠加来计算距离向量的使用方法。
 //Application: Yaoguang.luo

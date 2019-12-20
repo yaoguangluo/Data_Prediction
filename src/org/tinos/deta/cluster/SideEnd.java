@@ -5,6 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.tinos.deta.basic.Distance;
+import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.demension.Position3D;
 import org.tinos.deta.ratio.DistanceRatio;
 //Theory: Yaoguang.luo 20191216：12：06
 //一种仅仅通过坐标重心来描绘射极边缘面探测使用方法。

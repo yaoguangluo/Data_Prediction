@@ -8,20 +8,14 @@ import java.util.Map;
 import org.tinos.deta.basic.Distance;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
-public class Isolation{
-	public static double[] getCorrelation(double[] firstArray, double[] secondArray) {
-		double[] output= new double [firstArray.length];
-		for(int i= 0; i< firstArray.length; i++) {
-			output[i]= firstArray[i]/ secondArray[i];
-		}
-		return output;
-	}
-	//带精度 2维(非欧拉权距)商旅路径团簇 隔离 算法
+public class forestIsolation{
+	//带精度 2维 商旅路径团簇 森林单元 隔离 算法
 	//Theory 《神经网络: 权距》，欧基里德， Yaoguang.Luo 20191220
 	//Application Yaoguang.Luo 
 	//适用于 最短路径，最小距离，商旅分析预测，等项目中
-	public static Map<Double, List<Position2D>> getTSPIsolationGroups2D(List<Position2D> groups, double scale) {
+	public static Map<Double, List<Position2D>> getTSPForestIsolationGroups2D(List<Position2D> groups, double scale) {
 		boolean[][] isDelete= new boolean[groups.size()][groups.size()];
+		boolean[] isRootDelete= new boolean[groups.size()];
 		Map<Double, List<Position2D>> output= new HashMap<>(); 
 		Iterator<Position2D> iterator= groups.iterator();
 		double i= 0;
@@ -34,7 +28,7 @@ public class Isolation{
 				while(inIterator.hasNext()) {
 					j++;
 					//计算
-					if(isDelete[(int)i- 1][(int)j- 1]|| i== j) {
+					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j]) {
 						continue Here;
 					}
 					//轭消
@@ -55,16 +49,18 @@ public class Isolation{
 					list.add(inPosition2D);
 					output.put(i, list);
 				}
+			isRootDelete[(int)i]= true;
 		}
 		return output;	
 	}
 
-	//带精度 3维(非欧拉权距)商旅路径团簇 隔离 算法
+	//带精度 3维 商旅路径团簇 森林单元 隔离 算法
 	//Theory 《神经网络: 权距》，欧基里德， Yaoguang.Luo 20191220
 	//Application Yaoguang.Luo 
 	//适用于 最短路径，最小距离，商旅分析预测，等项目中
 	public static Map<Double, List<Position3D>> getTSPIsolationGroups3D(List<Position3D> groups, double scale) {
 		boolean[][] isDelete= new boolean[groups.size()][groups.size()];
+		boolean[] isRootDelete= new boolean[groups.size()];
 		Map<Double, List<Position3D>> output= new HashMap<>(); 
 		Iterator<Position3D> iterator= groups.iterator();
 		double i= 0;
@@ -77,7 +73,7 @@ public class Isolation{
 				while(inIterator.hasNext()) {
 					j++;
 					//计算
-					if(isDelete[(int)i- 1][(int)j- 1]|| i== j) {
+					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j]) {
 						continue Here;
 					}
 					//轭消
@@ -98,6 +94,7 @@ public class Isolation{
 					list.add(inPosition3D);
 					output.put(i, list);
 				}
+			isRootDelete[(int)i]= true;
 		}
 		return output;	
 	}

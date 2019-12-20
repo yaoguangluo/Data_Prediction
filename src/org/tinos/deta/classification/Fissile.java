@@ -4,10 +4,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.tinos.deta.cluster.Distance;
-import org.tinos.deta.cluster.Eclid;
-import org.tinos.deta.cluster.Position2D;
-import org.tinos.deta.cluster.Position3D;
+
+import org.tinos.deta.basic.Distance;
+import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.demension.Position3D;
 //task 20191219 daytime
 //通过scale 距离来进行 坐标团切裂。
 //Theory yaoguang.luo 20191219， 欧基里德

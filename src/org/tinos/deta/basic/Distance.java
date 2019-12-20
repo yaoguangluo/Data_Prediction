@@ -1,4 +1,8 @@
-package org.tinos.deta.cluster;
+package org.tinos.deta.basic;
+
+import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.demension.Position3D;
+
 //Theory: Yaoguang.luo
 //一种仅仅通过坐标差值叠加来计算距离向量的使用方法。
 //Application: Yaoguang.luo
