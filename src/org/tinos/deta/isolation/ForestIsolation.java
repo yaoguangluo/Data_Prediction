@@ -8,7 +8,7 @@ import java.util.Map;
 import org.tinos.deta.basic.Distance;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
-public class forestIsolation{
+public class ForestIsolation{
 	//带精度 2维 商旅路径团簇 森林单元 隔离 算法
 	//Theory 《神经网络: 权距》，欧基里德， Yaoguang.Luo 20191220
 	//Application Yaoguang.Luo 
@@ -29,7 +29,7 @@ public class forestIsolation{
 					j++;
 					Position2D inPosition2D= inIterator.next();
 					//计算
-					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j]) {
+					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j- 1]) {
 						continue Here;
 					}
 					//轭消
@@ -50,7 +50,7 @@ public class forestIsolation{
 					list.add(inPosition2D);
 					output.put(i, list);
 				}
-			isRootDelete[(int)i]= true;
+			isRootDelete[(int)i- 1]= true;
 		}
 		return output;	
 	}
@@ -75,7 +75,7 @@ public class forestIsolation{
 					j++;
 					Position3D inPosition3D= inIterator.next();
 					//计算
-					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j]) {
+					if(isDelete[(int)i- 1][(int)j- 1]|| i== j|| isRootDelete[(int)j- 1]) {
 						continue Here;
 					}
 					//轭消
@@ -96,7 +96,7 @@ public class forestIsolation{
 					list.add(inPosition3D);
 					output.put(i, list);
 				}
-			isRootDelete[(int)i]= true;
+			isRootDelete[(int)i- 1]= true;
 		}
 		return output;	
 	}

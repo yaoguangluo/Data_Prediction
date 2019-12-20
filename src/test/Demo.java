@@ -10,6 +10,7 @@ import org.tinos.deta.basic.Eclid;
 import org.tinos.deta.classification.Fissile;
 import org.tinos.deta.cluster.Fusion;
 import org.tinos.deta.demension.Position2D;
+import org.tinos.deta.isolation.ForestIsolation;
 import org.tinos.deta.isolation.Isolation;
 
 public class Demo{
@@ -62,8 +63,8 @@ public class Demo{
 //			}	
 //		}
 		
-		//处理商旅簇isolation
-		Map<Double, List<Position2D>> output= Isolation.getTSPIsolationGroups2D(input, 14);
+		//处理商旅森林 isolation
+		Map<Double, List<Position2D>> output= ForestIsolation.getTSPForestIsolationGroups2D(input, 12);
 		Iterator<Double> iterator= output.keySet().iterator();
 		while(iterator.hasNext()) {
 			double temp= iterator.next();
@@ -76,6 +77,20 @@ public class Demo{
 			}	
 		}
 		
+//		//处理商旅簇isolation
+//				Map<Double, List<Position2D>> output= Isolation.getTSPIsolationGroups2D(input, 12);
+//				Iterator<Double> iterator= output.keySet().iterator();
+//				while(iterator.hasNext()) {
+//					double temp= iterator.next();
+//					System.out.println();
+//					System.out.println(temp);
+//					Iterator<Position2D> iterator1= output.get(temp).iterator();
+//					while(iterator1.hasNext()) {
+//						Position2D temp1= iterator1.next();
+//						System.out.println(temp1.getX()+ ":"+ temp1.getY());
+//					}	
+//				}
+//		
 		//处理fusion 先 fissile 采样
 //		Map<Double, List<Position2D>> output= Fissile.fissilePosition2D(input, 13);
 //		Iterator<Double> iterator= output.keySet().iterator();
