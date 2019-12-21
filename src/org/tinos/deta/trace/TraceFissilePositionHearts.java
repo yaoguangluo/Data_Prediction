@@ -11,7 +11,7 @@ import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 public class TraceFissilePositionHearts{
 	public static Map<Double, List<Position2D>> 
-	trackTracePosition2DHeartsWithSingerGroup(List<Position2D> coods, double distanceScale){
+	trackTracePosition2DHeartsWithFissileGroups(List<Position2D> coods, double distanceScale){
 		Map<Double, List<Position2D>> output= new HashMap<>(); 
 		Map<Double, List<Position2D>> distanceGroups= new HashMap<>();
 		Iterator<Position2D> iterator= coods.iterator();
@@ -69,7 +69,7 @@ public class TraceFissilePositionHearts{
 	}
 	
 	public static Map<Double, List<Position3D>> 
-	trackTracePosition3DHeartsWithSingerGroup(List<Position3D> coods, double distanceScale){
+	trackTracePosition3DHeartsWithFissileGroups(List<Position3D> coods, double distanceScale){
 		Map<Double, List<Position3D>> output= new HashMap<>(); 
 		Map<Double, List<Position3D>> distanceGroups= new HashMap<>();
 		Iterator<Position3D> iterator= coods.iterator();
