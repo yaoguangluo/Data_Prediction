@@ -6,7 +6,7 @@ import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 //Theory: Eclid
 //Application: Yaoguang.luo
-public class Eclid{
+public class Euclid{
 	public static Position2D findHeartPosition2D(List<Position2D> List) {
 		Iterator<Position2D> iterator= List.iterator();
 		double sumOfX= 0;

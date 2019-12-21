@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.tinos.deta.basic.Distance;
-import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 import org.tinos.deta.ratio.DistanceRatio;
@@ -15,7 +15,7 @@ import org.tinos.deta.ratio.DistanceRatio;
 //Application: Yaoguang.luo
 public class SideEnd{
 	public static List<Position2D> getSideEnd2D(List<Position2D> list, double scale) {
-		Position2D heart= Eclid.findHeartPosition2D(list);
+		Position2D heart= Euclid.findHeartPosition2D(list);
 		Map<Double, Position2D> ratioSide= new HashMap<>();
 		Iterator<Position2D> iterator= list.iterator();
 		while(iterator.hasNext()) {
@@ -46,7 +46,7 @@ public class SideEnd{
 	}
 	
 	public static List<Position3D> getSideEnd3D(List<Position3D> list, double scale) {
-		Position3D heart= Eclid.findHeartPosition3D(list);
+		Position3D heart= Euclid.findHeartPosition3D(list);
 		Map<Double, Position3D> ratioSide= new HashMap<>();
 		Iterator<Position3D> iterator= list.iterator();
 		while(iterator.hasNext()) {

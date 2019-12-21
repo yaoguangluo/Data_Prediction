@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.tinos.deta.basic.Distance;
-import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.demension.Position2D;
 //这个函数用于通过重心位移距离来进行坐标分类
 //思想：欧基里德
@@ -18,7 +18,7 @@ public class PositionClasification{
 		while(iterator.hasNext()) {
 			groupKey= iterator.next();
 			List<Position2D> group= groups.get(groupKey);
-			Position2D heart= Eclid.findHeartPosition2D(group);
+			Position2D heart= Euclid.findHeartPosition2D(group);
 			double distance= Distance.getDistance2D(heart, position2D);
 			if(scaleDistance< distance) {
 				group.add(position2D);
@@ -45,7 +45,7 @@ public class PositionClasification{
 				group.add(position2D);
 				groups.put(groupKey, group);
 				//hearts熵增
-				Position2D CryptHeart= Eclid.findCryptionPosition2D(heart, position2D);
+				Position2D CryptHeart= Euclid.findCryptionPosition2D(heart, position2D);
 				hearts.put(groupKey, CryptHeart);
 				return groups;
 			}

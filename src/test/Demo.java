@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.classification.Fissile;
 import org.tinos.deta.classification.PositionClasification;
 import org.tinos.deta.cluster.Fusion;

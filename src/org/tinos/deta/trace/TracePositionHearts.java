@@ -2,7 +2,7 @@ package org.tinos.deta.trace;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 public class TracePositionHearts{
@@ -17,7 +17,7 @@ public class TracePositionHearts{
 			}else {
 				Position2D position2D= iterator.next();
 				Position2D CryptHeart
-				= Eclid.findCryptionPosition2D(hearts.get(hearts.size()- 1), position2D);
+				= Euclid.findCryptionPosition2D(hearts.get(hearts.size()- 1), position2D);
 				hearts.add(CryptHeart);
 			}
 		}
@@ -35,7 +35,7 @@ public class TracePositionHearts{
 			}else {
 				Position3D position3D= iterator.next();
 				Position3D CryptHeart
-				= Eclid.findCryptionPosition3D(hearts.get(hearts.size()- 1), position3D);
+				= Euclid.findCryptionPosition3D(hearts.get(hearts.size()- 1), position3D);
 				hearts.add(CryptHeart);
 			}
 		}

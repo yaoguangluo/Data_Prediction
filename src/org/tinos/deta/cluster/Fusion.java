@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.tinos.deta.basic.Distance;
-import org.tinos.deta.basic.Eclid;
+import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 //task 20191220-20191222 daytime
@@ -58,7 +58,7 @@ public class Fusion{
 								}
 								output.put(out, outList);
 								//更新heart
-								Position2D newHeart= Eclid.findCryptionPosition2D(outHeart, inHeart);
+								Position2D newHeart= Euclid.findCryptionPosition2D(outHeart, inHeart);
 								outputHeart.put(out, newHeart);
 								isDelete.put(in, in);
 							}else {//比较 否融合）
@@ -130,7 +130,7 @@ public class Fusion{
 								}
 								output.put(out, outList);
 								//更新heart
-								Position3D newHeart= Eclid.findCryptionPosition3D(outHeart, inHeart);
+								Position3D newHeart= Euclid.findCryptionPosition3D(outHeart, inHeart);
 								outputHeart.put(out, newHeart);
 								isDelete.put(in, in);
 							}else {//比较 否融合）
