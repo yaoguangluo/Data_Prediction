@@ -14,6 +14,6 @@ public class Ratio{
 	public void setRightRatio(double rightRatio) {
 		this.rightRatio = rightRatio;
 	}
-	public double errorRatio;
-	public double rightRatio;
+	private double errorRatio;
+	private double rightRatio;
 }
