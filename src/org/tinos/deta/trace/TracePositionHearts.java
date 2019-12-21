@@ -6,7 +6,7 @@ import org.tinos.deta.basic.Eclid;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 public class TracePositionHearts{
-	public static List<Position2D> TracePosition2DHearts(List<Position2D> coods){
+	public static List<Position2D> trackTracePosition2DHeartsWithSingerGroup(List<Position2D> coods){
 		List<Position2D> hearts= new ArrayList<>();
 		Iterator<Position2D> iterator= coods.iterator();
 		boolean isFirst= true;
@@ -16,14 +16,15 @@ public class TracePositionHearts{
 				hearts.add(iterator.next());
 			}else {
 				Position2D position2D= iterator.next();
-				Position2D CryptHeart= Eclid.findCryptionPosition2D(hearts.get(hearts.size()- 1), position2D);
+				Position2D CryptHeart
+				= Eclid.findCryptionPosition2D(hearts.get(hearts.size()- 1), position2D);
 				hearts.add(CryptHeart);
 			}
 		}
 		return hearts;
 	}
 	
-	public static List<Position3D> TracePosition3DHearts(List<Position3D> coods){
+	public static List<Position3D> trackTracePosition3DHeartsWithSingerGroup(List<Position3D> coods){
 		List<Position3D> hearts= new ArrayList<>();
 		Iterator<Position3D> iterator= coods.iterator();
 		boolean isFirst= true;
@@ -33,7 +34,8 @@ public class TracePositionHearts{
 				hearts.add(iterator.next());
 			}else {
 				Position3D position3D= iterator.next();
-				Position3D CryptHeart= Eclid.findCryptionPosition3D(hearts.get(hearts.size()- 1), position3D);
+				Position3D CryptHeart
+				= Eclid.findCryptionPosition3D(hearts.get(hearts.size()- 1), position3D);
 				hearts.add(CryptHeart);
 			}
 		}
