@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
-//Theory: Eclid
+//Theory: Euclid
 //Application: Yaoguang.luo
 public class Euclid{
 	public static Position2D findHeartPosition2D(List<Position2D> List) {
