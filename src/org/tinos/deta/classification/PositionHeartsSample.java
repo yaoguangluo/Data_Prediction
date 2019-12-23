@@ -36,7 +36,7 @@ public class PositionHeartsSample{
 		return groups.get(key);	
 	}	
 
-	public static Map<Double, List<Position2D>> getShortestSamplePosition2DGroupsWithScale(Position2D inputHeart
+	public static Map<Double, List<Position2D>> getShorterSamplePosition2DGroupsWithScale(Position2D inputHeart
 			, Map<Double, List<Position2D>> groups, double scale) {
 		Map<Double, List<Position2D>> output= new HashMap<>();
 		Iterator<Double> iterators= groups.keySet().iterator();
