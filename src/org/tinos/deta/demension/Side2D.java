@@ -1,19 +1,33 @@
 package org.tinos.deta.demension;
-//Theory: Euclid
+//Theory: ÎÞ·¨¿¼Ö¤
 //Application: Yaoguang.luo
 public class Side2D{
-	public double getxRange() {
-		return xRange;
+	public Line2D getTop() {
+		return top;
 	}
-	public void setxRange(double xRange) {
-		this.xRange= xRange;
+	public void setTop(Line2D top) {
+		this.top = top;
 	}
-	public double getyRange() {
-		return yRange;
+	public Line2D getDown() {
+		return down;
 	}
-	public void setyRange(double yRange) {
-		this.yRange= yRange;
+	public void setDown(Line2D down) {
+		this.down = down;
 	}
-	private double xRange;
-	private double yRange;
+	public Line2D getLeft() {
+		return left;
+	}
+	public void setLeft(Line2D left) {
+		this.left = left;
+	}
+	public Line2D getRight() {
+		return right;
+	}
+	public void setRight(Line2D right) {
+		this.right = right;
+	}
+	private Line2D top;
+	private Line2D down;
+	private Line2D left;
+	private Line2D right;
 }
