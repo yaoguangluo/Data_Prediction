@@ -60,7 +60,7 @@ public class FindSum{
 	
 	public static double findSumOfDoubleMatrix3D(double[][][] input) {
 		double output= 0;
-		for(int i= 0; i< input.length;i++) {
+		for(int i= 0; i< input.length; i++) {
 			for(int j= 0; j< input[0].length; j++) {
 				for(int k= 0; k< input[0][0].length; k++) {
 					output+= input[i][j][k];

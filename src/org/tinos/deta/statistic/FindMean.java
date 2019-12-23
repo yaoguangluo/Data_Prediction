@@ -13,7 +13,7 @@ public class FindMean{
 	public static Double[] findMeanOfTwoDoubleArray(Double[] origin, Double[] input) {
 		Double[] output= new Double[origin.length];
 		for(int i= 0; i< input.length; i++) {
-			output[i]= (origin[i]+ input[i])/2;
+			output[i]= (origin[i]+ input[i])/ 2;
 		}
 		return output;
 	}
