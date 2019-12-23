@@ -41,25 +41,26 @@ public class DistanceRatio{
 	public static double getTrueARCDistanceRatio2D(Position2D begin, Position2D end) {
 		double x= begin.getX()- end.getX();
 		double y= begin.getY()- end.getY();
+		double z= Math.sqrt(x* x+ y* y);
 		//1象限
 		if(x>=0&& y>=0) {
-			return Math.asin(Math.abs(x)/y);
+			return Math.asin(Math.abs(x)/z);
 		}
 		//4象限
 		if(x>= 0 && y<0) {
-			return 2* Set.getPi()- Math.asin(Math.abs(x)/y);
+			return 2* Set.getPi()- Math.asin(Math.abs(x)/z);
 		}
 		//2象限
 		if(x< 0 && y>= 0) {
-			return Set.getPi()- Math.asin(Math.abs(x)/y);
+			return Set.getPi()- Math.asin(Math.abs(x)/z);
 		}
 		//3象限
 		if(x< 0&& y< 0) {
-			return Set.getPi()+ Math.asin(Math.abs(x)/y);
+			return Set.getPi()+ Math.asin(Math.abs(x)/z);
 		}
 		return 0;
 	}
-	
+	//获取计算参照梯度
 	public static double getDistanceRatio3D(Position3D begin, Position3D end) {
 		double pi= 3.1415926;
 		double x= begin.getX()- end.getX();
@@ -98,5 +99,11 @@ public class DistanceRatio{
 			}
 		}
 		return 0;
+	}
+	
+	//获取真实三维夹角
+	public static double getTrueARCDistanceRatio3D(Position3D begin, Position3D end) {
+		return 0;
+		//球面参照无效。以后研究下有什么标准规范没。
 	}
 }
