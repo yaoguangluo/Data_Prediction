@@ -10,7 +10,8 @@ import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 //task 20191219 daytime
 //通过scale 距离来进行 坐标团切裂, 并匹配最短最近重心域融入。
-//Theory yaoguang.luo 20191219， 欧基里德
+//算法 耗时更长，准确度再增加。
+//Theory yaoguang.luo 20191219~23， 欧基里德
 //Application yaoguang.luo
 public class FissileWithMatch{
 	public static Map<Double, List<Position2D>> fissilePosition2DWithMatch(List<Position2D> groups
