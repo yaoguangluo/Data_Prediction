@@ -27,7 +27,39 @@ public class DistanceRatio{
 		}
 		return 0;
 	}
-
+	
+	//降低计算速度来获取高准确斜率梯度 (早期傅里叶思想)
+	public static double getARCDistanceRatio2D(Position2D begin, Position2D end) {
+		double x= begin.getX()- end.getX();
+		double y= begin.getY()- end.getY();
+		double z= Math.sqrt(x* x+ y* y);	
+		return Math.asin(x/z)+ Math.acos(y/z);
+	}
+	
+	//降低计算速度来获取两点间线的真实角度 
+	public static double getTrueARCDistanceRatio2D(Position2D begin, Position2D end) {
+		double x= begin.getX()- end.getX();
+		double y= begin.getY()- end.getY();
+		double z= Math.sqrt(x* x+ y* y);	
+		//1象限
+		if(x>=0&& y>=0) {
+			return Math.asin(Math.abs(x)/y);
+		}
+		//4象限
+		if(x>= 0 && y<0) {
+			return 2* 3.1415926- Math.asin(Math.abs(x)/y);
+		}
+		//2象限
+		if(x< 0 && y>= 0) {
+			return 3.1415926- Math.asin(Math.abs(x)/y);
+		}
+		//3象限
+		if(x< 0&& y< 0) {
+			return 3.1415926+ Math.asin(Math.abs(x)/y);
+		}
+		return 0;
+	}
+	
 	public static double getDistanceRatio3D(Position3D begin, Position3D end) {
 		double pi= 3.1415926;
 		double x= begin.getX()- end.getX();
