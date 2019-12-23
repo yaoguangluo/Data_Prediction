@@ -1,5 +1,5 @@
 package org.tinos.deta.demension;
-//Theory: Eclid
+//Theory: Euclid
 //Application: Yaoguang.luo
 public class Side3D{
 	public double getxRange() {
