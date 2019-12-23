@@ -1,4 +1,4 @@
-package org.tinos.deta.ratio;
+package org.tinos.deta.basic;
 //Theory: ±´Ò¶Ë¹
 //Application: Yaoguang.luo
 public class RatioMatrix{

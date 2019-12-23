@@ -14,6 +14,6 @@ public class Position2D{
 	public void setY(double y) {
 		this.y = y;
 	}
-	public double x;
-	public double y;
+	private double x;
+	private double y;
 }

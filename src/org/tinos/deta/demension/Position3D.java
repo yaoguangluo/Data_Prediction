@@ -1,5 +1,5 @@
 package org.tinos.deta.demension;
-//Theory: Eclid
+//Theory: Euclid
 //Application: Yaoguang.luo
 public class Position3D{
 	public double getX() {
@@ -20,7 +20,7 @@ public class Position3D{
 	public void setZ(double z) {
 		this.z = z;
 	}
-	public double x;
-	public double y;
-	public double z;
+	private double x;
+	private double y;
+	private double z;
 }
