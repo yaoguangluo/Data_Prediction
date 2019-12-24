@@ -1,11 +1,12 @@
-package org.tinos.deta.statistic;
+package org.tinos.deta.PCA;
 import java.util.Iterator;
 import java.util.List;
 
 import org.tinos.deta.basic.Distance;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
-public class FindMeanDistance{
+import org.tinos.deta.statistic.LYG4DWithDoubleQuickSort4D;
+public class FindPCAMeanDistance{
 	//求坐标团的主要有效距离成份集的平均压强算法
 	//思想：罗瑶光 20191225
 	//实现：罗瑶光
