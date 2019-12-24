@@ -4,7 +4,7 @@ import java.util.List;
 //theory: Àƒ‘Ú‘ÀÀ„ 
 //application: Yaoguang.Luo
 public class ProbabilityScore{
-	public static boolean getEstimateSumOfScoresList(List<Double> scores, double estimateValue) {
+	public static boolean encodeEstimateSumOfScoresList(List<Double> scores, double estimateValue) {
 		double sum= 0;
 		Iterator<Double> iterator= scores.iterator();
 		while(iterator.hasNext()) {
@@ -13,7 +13,7 @@ public class ProbabilityScore{
 		return sum> estimateValue? true: false;	
 	}
 
-	public static boolean getEstimateSumOfScoresArray(double[] scores, double estimateValue) {
+	public static boolean encodeEstimateSumOfScoresArray(double[] scores, double estimateValue) {
 		double sum= 0;
 		for(int i= 0; i< scores.length; i++) {
 			sum+= scores[i];
@@ -39,4 +39,25 @@ public class ProbabilityScore{
 		}
 		return sum> estimateValue? true: false;	
 	}
+	
+	public static boolean[] encodeEstimateInitonsScore(double[] input, double[] estimateRatios, double estimateValue[]) {
+		boolean dnaInitons[]= new boolean[input.length];
+		for(int i= 0; i< estimateRatios.length; i++) {
+			double sum= 0;
+			for(int j= 0; j< input.length; j++) {
+				sum+= input[j]* estimateRatios[i];
+			}
+			dnaInitons[i]= sum> estimateValue[i]? true: false;
+		}
+		return dnaInitons;
+	}  
+	
+	public static boolean[] decodeEstimateInitonsScore(double input, double[] estimateRatios, double estimateValue[]) {
+		boolean dnaInitons[]= new boolean[estimateRatios.length];
+		for(int i= 0; i< estimateRatios.length; i++) {
+			double sum= input* estimateRatios[i];
+			dnaInitons[i]= sum> estimateValue[i]? true: false;
+		}
+		return dnaInitons;
+	}  
 }
