@@ -7,7 +7,10 @@ import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 import org.tinos.deta.statistic.LYG4DWithDoubleQuickSort4D;
 public class FindPCAMeanDistance{
+	//oberserverPCAScale：确定主要有效最短路径的观测数
+	//sortRangeScale：确定坐标距离排序时的相似成份多少来确定堆栈冗余比，避免堆栈溢出。
 	//求坐标团的主要有效距离成份集的平均压强算法
+	//适用于 观测/预测坐标集中某精度邻接坐标集的 平均距离 来确定 紧凑度，压力，压强，斥力等。
 	//思想：罗瑶光 20191225
 	//实现：罗瑶光
 	public static double findMeanDistanceFromPositions2D(List<Position2D> position2Ds
