@@ -157,7 +157,7 @@ public class Demo{
 		input.add(position2D5);
 		//double v= FindPCAMeanDistance.findMeanDistanceFromPositions2D(input, 5, 4);
 		//System.out.println(v);
-		double[] v= FindPCAMeanDistance.findPascalMeanDistanceByEachPositions2D(input, 7, 4);
+		double[] v= FindPCAMeanDistance.findPascalMeanDistanceByEachPositions2D(input, 3, 4);
 		for(int i= 0; i< v.length; i++) {
 			System.out.println(v[i]);
 		}
