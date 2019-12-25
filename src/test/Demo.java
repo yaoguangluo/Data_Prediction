@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.tinos.deta.PCA.FindPCAMeanDistance;
 import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.classification.Fissile;
 import org.tinos.deta.classification.PositionClasification;
@@ -128,24 +129,37 @@ public class Demo{
 //				System.out.println(temp1.getX()+ ":"+ temp1.getY());
 //			}	
 //		}
+		//
+//		Position2D position2D5= new Position2D();
+//		position2D5.setX(15);
+//		position2D5.setY(25);
+//	
+//		Map<Double, List<Position2D>>inputMap= new HashMap<>();
+//		inputMap.put(0.0, input);
+//		Map<Double, List<Position2D>>output= PositionClasification.addNewPositionWithoutHeart(inputMap, position2D5, 29);//采样距离28.4
+//		
+//		Iterator<Double> iterator= output.keySet().iterator();
+//		while(iterator.hasNext()) {
+//			double temp= iterator.next();
+//			System.out.println();
+//			System.out.println(temp);
+//			Iterator<Position2D> iterator1= output.get(temp).iterator();
+//			while(iterator1.hasNext()) {
+//				Position2D temp1= iterator1.next();
+//				System.out.println(temp1.getX()+ ":"+ temp1.getY());
+//			}	
+//		}
+		
+		//
 		Position2D position2D5= new Position2D();
 		position2D5.setX(15);
 		position2D5.setY(25);
-	
-		Map<Double, List<Position2D>>inputMap= new HashMap<>();
-		inputMap.put(0.0, input);
-		Map<Double, List<Position2D>>output= PositionClasification.addNewPositionWithoutHeart(inputMap, position2D5, 29);//采样距离28.4
-		
-		Iterator<Double> iterator= output.keySet().iterator();
-		while(iterator.hasNext()) {
-			double temp= iterator.next();
-			System.out.println();
-			System.out.println(temp);
-			Iterator<Position2D> iterator1= output.get(temp).iterator();
-			while(iterator1.hasNext()) {
-				Position2D temp1= iterator1.next();
-				System.out.println(temp1.getX()+ ":"+ temp1.getY());
-			}	
+		input.add(position2D5);
+		//double v= FindPCAMeanDistance.findMeanDistanceFromPositions2D(input, 5, 4);
+		//System.out.println(v);
+		double[] v= FindPCAMeanDistance.findPascalMeanDistanceByEachPositions2D(input, 7, 4);
+		for(int i= 0; i< v.length; i++) {
+			System.out.println(v[i]);
 		}
 	}
 }

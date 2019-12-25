@@ -31,6 +31,9 @@ public class FindPCAMeanDistance{
 			distance= new LYG4DWithDoubleQuickSort4D().sort(distance, sortRangeScale);
 			//仅仅取精度内坐标点距离求平均值，0 为本身所以从 1 开始
 			double inMean= 0;
+			oberserverPCAScale= oberserverPCAScale>= position2Ds.size()
+					? position2Ds.size()- 1: oberserverPCAScale;
+			oberserverPCAScale= oberserverPCAScale< 0? 0: oberserverPCAScale;	
 			for(i= 1; i<= oberserverPCAScale; i++) {
 				inMean+= distance[i];
 			}
@@ -58,6 +61,9 @@ public class FindPCAMeanDistance{
 			distance= new LYG4DWithDoubleQuickSort4D().sort(distance, sortRangeScale);
 			//仅仅取精度内坐标点距离求平均值，0 为本身所以从 1 开始
 			double inMean= 0;
+			oberserverPCAScale= oberserverPCAScale>= position3Ds.size()
+					? position3Ds.size()- 1: oberserverPCAScale;
+			oberserverPCAScale= oberserverPCAScale< 0? 0: oberserverPCAScale;	
 			for(i= 1; i<= oberserverPCAScale; i++) {
 				inMean+= distance[i];
 			}
@@ -88,6 +94,9 @@ public class FindPCAMeanDistance{
 			distance= new LYG4DWithDoubleQuickSort4D().sort(distance, sortRangeScale);
 			//仅仅取精度内坐标点距离求平均值，0 为本身所以从 1 开始
 			double inMean= 0;
+			oberserverPCAScale= oberserverPCAScale>= position2Ds.size()
+					? position2Ds.size()- 1: oberserverPCAScale;
+			oberserverPCAScale= oberserverPCAScale< 0? 0: oberserverPCAScale;	
 			for(i= 1; i<= oberserverPCAScale; i++) {
 				inMean+= distance[i];
 			}
@@ -125,6 +134,9 @@ public class FindPCAMeanDistance{
 			distance= new LYG4DWithDoubleQuickSort4D().sort(distance, sortRangeScale);
 			//仅仅取精度内坐标点距离求平均值，0 为本身所以从 1 开始
 			double inMean= 0;
+			oberserverPCAScale= oberserverPCAScale>= position3Ds.size()
+					? position3Ds.size()- 1: oberserverPCAScale;
+			oberserverPCAScale= oberserverPCAScale< 0? 0: oberserverPCAScale;	
 			for(i= 1; i<= oberserverPCAScale; i++) {
 				inMean+= distance[i];
 			}

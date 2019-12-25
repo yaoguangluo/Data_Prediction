@@ -6,7 +6,7 @@ package org.tinos.deta.statistic;
 public class LYG4DWithDoubleQuickSort4D{
 	int range;
 	public double[] sort(double[] array, int range) {
-		this.range= range;
+		this.range= range< 1? 1: range;
 		processDouble(array, 0, array.length- 1);
 		return array;
 	}
