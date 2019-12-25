@@ -1,5 +1,5 @@
 package org.tinos.deta.ratio;
-import org.tinos.deta.basic.Set;
+import org.tinos.deta.basic.ComputeSets;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 //Theory: Yaoguang.luo
@@ -48,15 +48,15 @@ public class DistanceRatio{
 		}
 		//4象限
 		if(x>= 0 && y<0) {
-			return 2* Set.getPi()- Math.asin(Math.abs(x)/z);
+			return 2* ComputeSets.getPi()- Math.asin(Math.abs(x)/z);
 		}
 		//2象限
 		if(x< 0 && y>= 0) {
-			return Set.getPi()- Math.asin(Math.abs(x)/z);
+			return ComputeSets.getPi()- Math.asin(Math.abs(x)/z);
 		}
 		//3象限
 		if(x< 0&& y< 0) {
-			return Set.getPi()+ Math.asin(Math.abs(x)/z);
+			return ComputeSets.getPi()+ Math.asin(Math.abs(x)/z);
 		}
 		return 0;
 	}

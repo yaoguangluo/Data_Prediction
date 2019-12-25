@@ -1,7 +1,7 @@
 package org.tinos.deta.demension;
 //Theory: ÎÞ·¨¿¼Ö¤
 //Application: Yaoguang.luo
-public class Side2D{
+public class QuarSide2D{
 	public Line2D getTop() {
 		return top;
 	}

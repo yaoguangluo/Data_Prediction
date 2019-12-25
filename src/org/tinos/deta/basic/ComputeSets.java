@@ -1,7 +1,7 @@
 package org.tinos.deta.basic;
 //Theory: ×æ³åÖ®,
 //Application: Yaoguang.luo
-public class Set{
+public class ComputeSets{
 	public static double getPi() {
 		return Pi;
 	}
