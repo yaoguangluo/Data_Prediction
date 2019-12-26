@@ -54,4 +54,83 @@ public class Euclid{
 		position3D.setZ((heart.getZ()+ oneMore.getZ())/ 2);
 		return position3D;
 	}
+
+	public static Position2D findMidPosition2D(List<Position2D> list) {
+		double xMax= 0;
+		double yMax= 0;
+		double xMin= 0;
+		double yMin= 0;
+		Iterator<Position2D> iterator= list.iterator();
+		if(iterator.hasNext()) {
+			Position2D position2D= iterator.next();
+			xMax= position2D.getX();
+			xMin= position2D.getX();
+			yMax= position2D.getY();
+			yMin= position2D.getY();
+		}
+		while(iterator.hasNext()) {
+			Position2D position2D= iterator.next();
+			if(position2D.getX()> xMax) {
+				xMax= position2D.getX();
+			}
+			if(position2D.getX()< xMin) {
+				xMin= position2D.getX();
+			}
+			if(position2D.getY()> yMax) {
+				yMax= position2D.getY();
+			}
+			if(position2D.getY()< yMin) {
+				yMin= position2D.getY();
+			}
+		}
+		Position2D mid= new Position2D();
+		mid.setX((xMin+ xMax)/ 2);
+		mid.setY((yMin+ yMax)/ 2);
+		return mid;
+	}
+	
+	public static Position3D findMidPosition3D(List<Position3D> list) {
+		double xMax= 0;
+		double yMax= 0;
+		double xMin= 0;
+		double yMin= 0;
+		double zMax= 0;
+		double zMin= 0;
+		Iterator<Position3D> iterator= list.iterator();
+		if(iterator.hasNext()) {
+			Position3D position3D= iterator.next();
+			xMax= position3D.getX();
+			xMin= position3D.getX();
+			yMax= position3D.getY();
+			yMin= position3D.getY();
+			zMax= position3D.getZ();
+			zMin= position3D.getZ();
+		}
+		while(iterator.hasNext()) {
+			Position3D position3D= iterator.next();
+			if(position3D.getX()> xMax) {
+				xMax= position3D.getX();
+			}
+			if(position3D.getX()< xMin) {
+				xMin= position3D.getX();
+			}
+			if(position3D.getY()> yMax) {
+				yMax= position3D.getY();
+			}
+			if(position3D.getY()< yMin) {
+				yMin= position3D.getY();
+			}
+			if(position3D.getZ()> zMax) {
+				zMax= position3D.getZ();
+			}
+			if(position3D.getZ()< zMin) {
+				zMin= position3D.getZ();
+			}
+		}
+		Position3D mid= new Position3D();
+		mid.setX((xMin+ xMax)/ 2);
+		mid.setY((yMin+ yMax)/ 2);
+		mid.setZ((zMin+ zMax)/ 2);
+		return mid;
+	}
 }
