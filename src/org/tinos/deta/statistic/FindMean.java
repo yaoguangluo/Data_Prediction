@@ -2,6 +2,20 @@ package org.tinos.deta.statistic;
 import java.util.Iterator;
 import java.util.List;
 public class FindMean{
+	//这个函数用于求解 过滤百分比数组最大最小精度数值后的 mean。
+	//sortRangeScale：确定坐标距离排序时的相似成份多少来确定堆栈冗余比，避免堆栈溢出。
+	//思想：罗瑶光 20191226
+	//实现：罗瑶光
+	public static double findMeanOfFilterDoubleArrayWithScale(double[] input, double filterScale, int sortRangeScale) {
+		int rangeScale= (int)(filterScale* input.length);
+		input= new LYG4DWithDoubleQuickSort4D().sort(input, sortRangeScale);
+		double output= 0;
+		for(int i= rangeScale; i< input.length- rangeScale; i++) {
+			output+= input[i];
+		}
+		return output/ (input.length- 2* rangeScale);
+	}
+	
 	public static double findMeanOfDoubleArray(double[] input) {
 		double output= 0;
 		for(int i= 0; i< input.length; i++) {
