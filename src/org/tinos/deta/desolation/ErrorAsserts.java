@@ -20,8 +20,10 @@ public class ErrorAsserts{
 	}
 	
 	public boolean getBinaryErrorAsserts(double inputValue, double[] matchValues
-			, double scale, int sortStackRange) {
-		matchValues= new LYG4DWithDoubleQuickSort4D().sort(matchValues, sortStackRange);
+			, double scale, int sortStackRange, boolean isSort) {
+		if(!isSort) {
+			matchValues= new LYG4DWithDoubleQuickSort4D().sort(matchValues, sortStackRange);	
+		}
 		double max= inputValue+ scale;
 		double min= inputValue- scale;
 		int big= matchValues.length;
