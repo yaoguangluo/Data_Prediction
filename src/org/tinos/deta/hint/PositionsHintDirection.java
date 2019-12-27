@@ -1,5 +1,4 @@
 package org.tinos.deta.hint;
-import java.util.Iterator;
 import java.util.List;
 import org.tinos.deta.basic.Euclid;
 import org.tinos.deta.demension.Line2D;
