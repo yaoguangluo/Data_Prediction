@@ -26,15 +26,15 @@ public class ErrorAsserts{
 		double min= inputValue- scale;
 		int big= matchValues.length;
 		int mid= matchValues.length/ 2;
-		while(mid>= 0) {
+		while(big> 0) {
 			if(!(matchValues[mid]> max|| matchValues[mid]< min)) {
 				return true;
 			}
 			if(inputValue> matchValues[mid]) {
 				mid= (mid+ big)/ 2;
 			}else {
-				mid= mid/ 2;
 				big= mid;
+				mid= mid/ 2;
 			}
 		}
 		return false;
