@@ -59,6 +59,7 @@
 
 ### NLP
 ###### NLP Algorithm of Matching The POS Scored Sentence 20191228 Yaoguang. Luo
+###### NLP Algorithm of Matching The POS Scored Sentences 20191229 Yaoguang. Luo
 
 ####  已完成函数/预计函数：  93+/200
 ####  100+ 函数后进行单元测试和认知优化。
