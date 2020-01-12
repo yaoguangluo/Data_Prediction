@@ -23,4 +23,11 @@ public class Position3D{
 	private double x;
 	private double y;
 	private double z;
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+	private String tag;
 }

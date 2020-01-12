@@ -1,5 +1,5 @@
 package org.tinos.deta.demension;
-//Theory: 无法考证
+//Theory: 平面几何
 //Application: Yaoguang.luo
 public class Line2D{
 	public Position2D getBegin() {
@@ -14,6 +14,22 @@ public class Line2D{
 	public void setEnd(Position2D end) {
 		this.end = end;
 	}
+	public String getBeginTag() {
+		return beginTag;
+	}
+	public void setBeginTag(String beginTag) {
+		this.beginTag = beginTag;
+	}
+	public String getEndTag() {
+		return endTag;
+	}
+	public void setEndTag(String endTag) {
+		this.endTag = endTag;
+	}
+	
 	private Position2D begin;
 	private Position2D end;
+	private String beginTag;
+	private String endTag;
+	
 }
