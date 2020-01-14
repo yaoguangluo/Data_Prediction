@@ -48,6 +48,10 @@ public class YaoguangLuoEulerRingTSP2D{
 				if(indexMap.containsKey(position2DInner.getTag())) {
 					continue Next;
 				}
+				//2.2 delete self positions lines
+				if(!(position2DOuter.getX()!=position2DInner.getX()||position2DOuter.getY()!=position2DInner.getY())) {
+					continue Next;
+				}
 				Map<String, String> map= new HashMap<>();
 				if(indexMap.containsKey(position2DOuter.getTag())) {
 					map= indexMap.get(position2DOuter.getTag());
@@ -76,11 +80,8 @@ public class YaoguangLuoEulerRingTSP2D{
 				//5 normalization the unique key of the distance
 				distance[i++]= distanceDouble;
 			}
-			//5.1 delete the self lines
-			if(0!= distanceDouble) {
-				list.add(line2D);
-				uniqueLines.put(distanceDouble, list);
-			}
+			list.add(line2D);
+			uniqueLines.put(distanceDouble, list);
 		}
 		//6 Yaoguangluo's 4D Peak filter Theory Quick Sort the Distance Array
 		int sortRangeScale= 4; //my default is 4. you should change it as your want.
