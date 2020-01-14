@@ -49,7 +49,8 @@ public class YaoguangLuoEulerRingTSP2D{
 					continue Next;
 				}
 				//2.2 delete self positions lines
-				if(!(position2DOuter.getX()!=position2DInner.getX()||position2DOuter.getY()!=position2DInner.getY())) {
+				if(!(position2DOuter.getX()!=position2DInner.getX()
+						|| position2DOuter.getY()!=position2DInner.getY())) {
 					continue Next;
 				}
 				Map<String, String> map= new HashMap<>();
@@ -160,21 +161,16 @@ public class YaoguangLuoEulerRingTSP2D{
 				line3D.setBegin(position3DOuter);
 				line3D.setEnd(position3DInner);
 				//2.1 delete the De-reflection redundant lines
-				if(indexMap.containsKey(position3DOuter.getTag())) {
-					if(indexMap.containsKey(position3DInner.getTag())) {
-						if(indexMap.get(position3DOuter.getTag()).containsKey(position3DInner.getTag())) {
-							continue Next;
-						}
-					}
-				}
 				if(indexMap.containsKey(position3DInner.getTag())) {
-					if(indexMap.containsKey(position3DOuter.getTag())) {
-						if(indexMap.get(position3DOuter.getTag()).containsKey(position3DOuter.getTag())) {
-							continue Next;
-						}
-					}
+					continue Next;
 				}
-				Map<String, String> map =new HashMap<>();
+				//2.2 delete self positions lines
+				if(!(position3DOuter.getX()!= position3DInner.getX()
+						|| position3DOuter.getY()!= position3DInner.getY())
+						|| position3DOuter.getZ()!= position3DInner.getZ())) {
+					continue Next;
+				}
+				Map<String, String> map= new HashMap<>();
 				if(indexMap.containsKey(position3DOuter.getTag())) {
 					map= indexMap.get(position3DOuter.getTag());
 				}else {
@@ -202,11 +198,8 @@ public class YaoguangLuoEulerRingTSP2D{
 				//5 normalization the unique key of the distance
 				distance[i++]= distanceDouble;
 			}
-			//5.1 delete the self lines
-			if(0!= distanceDouble) {
-				list.add(line3D);
-				uniqueLines.put(distanceDouble, list);
-			}
+			list.add(line3D);
+			uniqueLines.put(distanceDouble, list);
 		}
 		//6 Yaoguangluo's 4D Peak filter Theory Quick Sort the Distance Array
 		int sortRangeScale= 4; //my default is 4. you should change it as your want.
