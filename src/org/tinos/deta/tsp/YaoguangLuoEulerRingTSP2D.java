@@ -46,9 +46,7 @@ public class YaoguangLuoEulerRingTSP2D{
 				line2D.setEnd(position2DInner);
 				//2.1 delete the De-reflection redundant lines
 				if(indexMap.containsKey(position2DInner.getTag())) {
-					if(indexMap.get(position2DInner.getTag()).containsKey(position2DOuter.getTag())) {
-						continue Next;
-					}
+					continue Next;
 				}
 				Map<String, String> map= new HashMap<>();
 				if(indexMap.containsKey(position2DOuter.getTag())) {
