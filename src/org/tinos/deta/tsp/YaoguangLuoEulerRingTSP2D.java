@@ -166,7 +166,7 @@ public class YaoguangLuoEulerRingTSP2D{
 				}
 				//2.2 delete self positions lines
 				if(!(position3DOuter.getX()!= position3DInner.getX()
-						|| position3DOuter.getY()!= position3DInner.getY())
+						|| position3DOuter.getY()!= position3DInner.getY()
 						|| position3DOuter.getZ()!= position3DInner.getZ())) {
 					continue Next;
 				}
