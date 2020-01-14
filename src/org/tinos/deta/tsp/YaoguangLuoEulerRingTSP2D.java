@@ -45,21 +45,12 @@ public class YaoguangLuoEulerRingTSP2D{
 				line2D.setBegin(position2DOuter);
 				line2D.setEnd(position2DInner);
 				//2.1 delete the De-reflection redundant lines
-				if(indexMap.containsKey(position2DOuter.getTag())) {
-					if(indexMap.containsKey(position2DInner.getTag())) {
-						if(indexMap.get(position2DOuter.getTag()).containsKey(position2DInner.getTag())) {
-							continue Next;
-						}
-					}
-				}
 				if(indexMap.containsKey(position2DInner.getTag())) {
-					if(indexMap.containsKey(position2DOuter.getTag())) {
-						if(indexMap.get(position2DOuter.getTag()).containsKey(position2DOuter.getTag())) {
-							continue Next;
-						}
+					if(indexMap.get(position2DInner.getTag()).containsKey(position2DOuter.getTag())) {
+						continue Next;
 					}
 				}
-				Map<String, String> map =new HashMap<>();
+				Map<String, String> map= new HashMap<>();
 				if(indexMap.containsKey(position2DOuter.getTag())) {
 					map= indexMap.get(position2DOuter.getTag());
 				}else {
