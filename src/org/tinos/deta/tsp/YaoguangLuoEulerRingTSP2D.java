@@ -71,7 +71,7 @@ public class YaoguangLuoEulerRingTSP2D{
 		i= 0;
 		Map<Double, List<Line2D>> uniqueLines= new HashMap<>();
 		while(linesKeySets.hasNext()) {
-			Line2D line2D=  linesKeySets.next();
+			Line2D line2D= linesKeySets.next();
 			double distanceDouble= Distance.getDistance2D(line2D.getBegin(), line2D.getEnd());
 			List<Line2D> list;
 			if(uniqueLines.containsKey(distanceDouble)) {
@@ -188,7 +188,7 @@ public class YaoguangLuoEulerRingTSP2D{
 		i= 0;
 		Map<Double, List<Line3D>> uniqueLines= new HashMap<>();
 		while(linesKeySets.hasNext()) {
-			Line3D line3D=  linesKeySets.next();
+			Line3D line3D= linesKeySets.next();
 			double distanceDouble= Distance.getDistance3D(line3D.getBegin(), line3D.getEnd());
 			List<Line3D> list;
 			if(uniqueLines.containsKey(distanceDouble)) {

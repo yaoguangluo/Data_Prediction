@@ -57,6 +57,7 @@
 
 #### 数组类
 ###### 增加 进行精度误差 线性和2分匹配 来获取质量是否属于合格状态算法 20191228 罗瑶光
+###### 增加 进行2维和3维的像素矩阵中2分极值分类 来进行 map坐标转化观测 算法 20190229 罗瑶光
 
 ### NLP
 ###### NLP Algorithm of Matching The POS Scored Sentence 20191228 Yaoguang. Luo
