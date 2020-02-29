@@ -1,4 +1,4 @@
-package org.tinos.deta.ICA;
+package org.tinos.deta.image;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.Map;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
 public class imagePixClassification{
+	//思想：统计与概率论
+	//作者：罗瑶光
 	//将shareholder分层处理的图片像素数据进行 分类归类统计输出
 	public static Map<Integer, List<Position2D>> getImagePixClassificationMap(int[][] pixMap){
 		Map<Integer, List<Position2D>> output= new HashMap<>();
