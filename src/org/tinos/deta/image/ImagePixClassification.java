@@ -1,20 +1,19 @@
 package org.tinos.deta.image;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
-public class imagePixClassification{
+public class ImagePixClassification{
 	//思想：统计与概率论
 	//作者：罗瑶光
 	//将shareholder分层处理的图片像素数据进行 分类归类统计输出
-	public static Map<Integer, List<Position2D>> getImagePixClassificationMap(int[][] pixMap){
-		Map<Integer, List<Position2D>> output= new HashMap<>();
+	public static Map<Integer, ArrayList<Position2D>> getImagePixClassificationMap(int[][] pixMap){
+		Map<Integer, ArrayList<Position2D>> output= new HashMap<>();
 		for(int i= 0; i< pixMap.length; i++) {
 			for(int j= 0; j< pixMap[0].length; j++) {
 				if(pixMap[i][j]> 0) {
-					List<Position2D> temp;
+					ArrayList<Position2D> temp;
 					if(output.containsKey(pixMap[i][j])) {
 						temp= output.get(pixMap[i][j]);
 					}else {
@@ -29,13 +28,13 @@ public class imagePixClassification{
 		return output;
 	}
 	
-	public static Map<Integer, List<Position3D>> getImagePixClassificationMap(int[][][] pixMap){
-		Map<Integer, List<Position3D>> output= new HashMap<>();
+	public static Map<Integer, ArrayList<Position3D>> getImagePixClassificationMap(int[][][] pixMap){
+		Map<Integer, ArrayList<Position3D>> output= new HashMap<>();
 		for(int i= 0; i< pixMap.length; i++) {
 			for(int j= 0; j< pixMap[0].length; j++) {
 				for(int k= 0; k< pixMap[0][0].length; k++) {
 					if(pixMap[i][j][k]> 0) {
-						List<Position3D> temp;
+						ArrayList<Position3D> temp;
 						if(output.containsKey(pixMap[i][j][k])) {
 							temp= output.get(pixMap[i][j][k]);
 						}else {

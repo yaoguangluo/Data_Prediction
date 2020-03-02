@@ -2,7 +2,6 @@ package org.tinos.deta.classification;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import org.tinos.deta.basic.Distance;
 import org.tinos.deta.basic.Euclid;
@@ -14,18 +13,18 @@ import org.tinos.deta.demension.Position3D;
 //Theory yaoguang.luo 20191219~23， 欧基里德
 //Application yaoguang.luo
 public class FissileWithMatch{
-	public static Map<Double, List<Position2D>> fissilePosition2DWithMatch(List<Position2D> groups
+	public static Map<Double, ArrayList<Position2D>> fissilePosition2DWithMatch(ArrayList<Position2D> groups
 			, double scale) {
-		Map<Double, List<Position2D>> distanceGroups= new HashMap<>();
+		Map<Double, ArrayList<Position2D>> distanceGroups= new HashMap<>();
 		Map<Double, Position2D> distanceHeart= new HashMap<>();
 		Iterator<Position2D> iterator= groups.iterator();
 		double i= 0.0;
 		while(iterator.hasNext()) {
 			Position2D position2D= iterator.next();
 			if(distanceGroups.isEmpty()) {
-				List<Position2D> list= new ArrayList<>();
-				list.add(position2D);
-				distanceGroups.put(i, list);
+				ArrayList<Position2D> ArrayList= new ArrayList<>();
+				ArrayList.add(position2D);
+				distanceGroups.put(i, ArrayList);
 				distanceHeart.put(i, position2D);
 			}else {
 				//遍历所有团
@@ -56,15 +55,15 @@ public class FissileWithMatch{
 					//融入得到新的重心
 					Position2D newHeart= Euclid.findCryptionPosition2D(currenctHeart, position2D);
 					//删除当前增加坐标集，更新坐标集
-					List<Position2D> list= distanceGroups.get(shortestDoubleScale);
-					list.add(position2D);
-					distanceGroups.put(shortestDoubleScale, list);
+					ArrayList<Position2D> ArrayList= distanceGroups.get(shortestDoubleScale);
+					ArrayList.add(position2D);
+					distanceGroups.put(shortestDoubleScale, ArrayList);
 					//删除当前重心数据，更新重心数据
 					distanceHeart.put(shortestDoubleScale, newHeart);
 				}else {
-					List<Position2D> list= new ArrayList<>();
-					list.add(position2D);
-					distanceGroups.put(++i, list);
+					ArrayList<Position2D> ArrayList= new ArrayList<>();
+					ArrayList.add(position2D);
+					distanceGroups.put(++i, ArrayList);
 					distanceHeart.put(i, position2D);	
 				}
 			}
@@ -72,18 +71,18 @@ public class FissileWithMatch{
 		return distanceGroups;	
 	}
 	
-	public static Map<Double, List<Position3D>> fissilePosition3DWithMatch(List<Position3D> groups
+	public static Map<Double, ArrayList<Position3D>> fissilePosition3DWithMatch(ArrayList<Position3D> groups
 			, double scale) {
-		Map<Double, List<Position3D>> distanceGroups= new HashMap<>();
+		Map<Double, ArrayList<Position3D>> distanceGroups= new HashMap<>();
 		Map<Double, Position3D> distanceHeart= new HashMap<>();
 		Iterator<Position3D> iterator= groups.iterator();
 		double i= 0.0;
 		while(iterator.hasNext()) {
 			Position3D position3D= iterator.next();
 			if(distanceGroups.isEmpty()) {
-				List<Position3D> list= new ArrayList<>();
-				list.add(position3D);
-				distanceGroups.put(i, list);
+				ArrayList<Position3D> ArrayList= new ArrayList<>();
+				ArrayList.add(position3D);
+				distanceGroups.put(i, ArrayList);
 				distanceHeart.put(i, position3D);
 			}else {
 				//遍历所有团
@@ -114,15 +113,15 @@ public class FissileWithMatch{
 					//融入得到新的重心
 					Position3D newHeart= Euclid.findCryptionPosition3D(currenctHeart, position3D);
 					//删除当前增加坐标集，更新坐标集
-					List<Position3D> list= distanceGroups.get(shortestDoubleScale);
-					list.add(position3D);
-					distanceGroups.put(shortestDoubleScale, list);
+					ArrayList<Position3D> ArrayList= distanceGroups.get(shortestDoubleScale);
+					ArrayList.add(position3D);
+					distanceGroups.put(shortestDoubleScale, ArrayList);
 					//删除当前重心数据，更新重心数据
 					distanceHeart.put(shortestDoubleScale, newHeart);
 				}else {
-					List<Position3D> list= new ArrayList<>();
-					list.add(position3D);
-					distanceGroups.put(++i, list);
+					ArrayList<Position3D> ArrayList= new ArrayList<>();
+					ArrayList.add(position3D);
+					distanceGroups.put(++i, ArrayList);
 					distanceHeart.put(i, position3D);	
 				}
 			}
