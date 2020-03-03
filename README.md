@@ -1,4 +1,4 @@
-# Data_Prediction 快速轨迹坐标数据统计与概率论预测评估计算引擎（数据预测引擎包）。
+# Data_Prediction (开源版本研发已收尾，当前为1.0版本。202003031333 ) 快速轨迹坐标数据统计与概率论预测评估计算引擎（数据预测引擎包）。
 ## 协议证书： Apache2.0 ， 使用与修改请 refer作者 ：'罗瑶光' 或者 'Yaoguang.Luo' 即可。  
 ## 作者在大量的工程细节中遇到了数据预测计算和评估的功能需求，觉得有必要设计一个数据预测API.
 
@@ -71,5 +71,4 @@
 ###### NLP Algorithm of Matching The POS Scored Sentence 20191228 Yaoguang. Luo
 ###### NLP Algorithm of Matching The POS Scored Sentences 20191229 Yaoguang. Luo
 
-####  已完成函数/预计函数：  93+/200
-####  100+ 函数后进行单元测试和认知优化。
+
