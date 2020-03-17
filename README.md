@@ -7,7 +7,11 @@
 ###### 完善了欧基里德 距离重心算法 20191216 罗瑶光
 ###### 完善了基于2维重心曲度射极斜率探测坐标雷达算法来获取边缘， 比常规 边缘小线段集合梯度计算快600倍。 20191216 罗瑶光
 ###### 完善了基于3维重心曲度射极斜率探测坐标雷达算法来获取边缘， 比常规 边缘小线段集合梯度计算快600倍。 20191218 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/cluster/SideEnd.java
+
 ###### 完善了极快速欧基里德动态坐标簇分类算法 20191217 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/classification/PositionClasification.java
+
 ###### 完善了带精度 欧基里德 2维坐标团 切裂算法 20191219 罗瑶光
 ###### 完善了带精度 欧基里德 2维坐标集 重心熵 融聚算法 20191219 罗瑶光
 ###### 完善了带精度 欧基里德 3维坐标团 切裂算法 20191219 罗瑶光
@@ -45,6 +49,8 @@
 ###### 增加了 2，3维 临近2个坐标团的相互引力比的算法建模观测，小于1 吸引，大于1 排斥。 20191227 罗瑶光 
 ###### 增加了 2，3维 支持高达1亿坐标 的 极速欧拉微分回路 商旅路径计算 的 TSP算法 1代 20200112 罗瑶光
 ###### 增加了 2，3维 支持高达1亿坐标 的 极速欧拉微分回路 商旅路径计算 的 TSP算法 2,3代 20200317 罗瑶光
+https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/tsp/YaoguangLuoEulerRingTSP2D.java
+https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/tsp/YaoguangLuoEulerRingTSP3D.java
 
 
 #### 概率类 
@@ -72,5 +78,6 @@
 ### NLP
 ###### NLP Algorithm of Matching The POS Scored Sentence 20191228 Yaoguang. Luo
 ###### NLP Algorithm of Matching The POS Scored Sentences 20191229 Yaoguang. Luo
+https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/NLP/NLPTopicMatch.java
 
 
