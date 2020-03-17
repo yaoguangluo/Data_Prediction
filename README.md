@@ -15,13 +15,23 @@ https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/cl
 ###### 完善了带精度 欧基里德 2维坐标团 切裂算法 20191219 罗瑶光
 ###### 完善了带精度 欧基里德 2维坐标集 重心熵 融聚算法 20191219 罗瑶光
 ###### 完善了带精度 欧基里德 3维坐标团 切裂算法 20191219 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/classification/Fissile.java
+
 ###### 完善了带精度 欧基里德 3维坐标集 重心熵 融聚算法 20191219 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/cluster/Fusion.java
+
 ###### 完善了带精度 2维 (非欧拉权距)商旅路径团簇 隔离 算法 20191220 罗瑶光
 ###### 完善了带精度 3维 (非欧拉权距)商旅路径团簇 隔离 算法 20191220 罗瑶光
+https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/isolation/Isolation.java
+
 ###### 完善了带精度 2维 商旅路径团簇 森林单元 隔离 算法 20191220 罗瑶光
 ###### 完善了带精度 3维 商旅路径团簇 森林单元 隔离 算法 20191220 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/isolation/ForestIsolation.java
+
 ###### 完善 2维 坐标集 切裂 重心 轨迹 跟踪算法 20191221 罗瑶光
 ###### 完善 3维 坐标集 切裂 重心 轨迹 跟踪算法 20191221 罗瑶光
+https://gitee.com/DetaChina/Data_Prediction/tree/master/src/org/tinos/deta/trace
+
 ###### 完善增加 2维 坐标重心轨迹跟踪算法 20191221 罗瑶光
 ###### 完善增加 3维 坐标重心轨迹跟踪算法 20191221 罗瑶光
 ###### 增加 2维 带精度匹配最短最近重心团切融算法 20191223 罗瑶光
@@ -38,6 +48,8 @@ https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/cl
 ###### 增加了 3维 精度 子集数量内 融聚团 筛选算法 20191224 罗瑶光
 ###### 增加了 2维 坐标团的带精度计算 主要有效距离成份集的平均压强算法 20191225 罗瑶光
 ###### 增加了 3维 坐标团的带精度计算 主要有效距离成份集的平均压强算法 20191225 罗瑶光
+https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/PCA/FindPCAMeanDistance.java
+
 ###### 增加了 2维 坐标团中 每一个坐标与精度数邻接坐标集的最小距离平均值比上 整体平均值来 获取的不稳定状态观测/预测（斥力，活性）算法。 20191225 罗瑶光
 ###### 增加了 3维 坐标团中 每一个坐标与精度数邻接坐标集的最小距离平均值比上 整体平均值来 获取的不稳定状态观测/预测（斥力，活性）算法。 20191225 罗瑶光
 ###### 增加了 2维 坐标集的计算观测优化函数 和 观测宽度差 求值 20191225 罗瑶光
