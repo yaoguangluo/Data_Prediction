@@ -52,12 +52,15 @@ https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/PCA/F
 
 ###### 增加了 2维 坐标团中 每一个坐标与精度数邻接坐标集的最小距离平均值比上 整体平均值来 获取的不稳定状态观测/预测（斥力，活性）算法。 20191225 罗瑶光
 ###### 增加了 3维 坐标团中 每一个坐标与精度数邻接坐标集的最小距离平均值比上 整体平均值来 获取的不稳定状态观测/预测（斥力，活性）算法。 20191225 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/PCA/FindPCAMeanDistance.java
+
 ###### 增加了 2维 坐标集的计算观测优化函数 和 观测宽度差 求值 20191225 罗瑶光
 ###### 增加了 3维 坐标集的计算观测优化函数 和 观测宽度差 求值 20191225 罗瑶光
 ###### 增加了 2维 坐标集隐藏运动趋势预测算法 20191226 罗瑶光
 ###### 增加了 3维 坐标集隐藏运动趋势预测算法 20191226 罗瑶光
 ###### 增加了 2，3 求坐标团集的中心和重心集 算法 并做了局部认知优化 20191226 罗瑶光
 ###### 增加了 2，3维 通过坐标团的 精度匹配分割的内部坐标聚类团 进行 每个聚类团的 重心和中心距离 求解 获取有效的团稳定观测数据模型 20191227 罗瑶光
+https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/PCA/FindPositionsGroupPascalHearts.java
 ###### 增加了 2，3维 临近2个坐标团的相互引力比的算法建模观测，小于1 吸引，大于1 排斥。 20191227 罗瑶光 
 ###### 增加了 2，3维 支持高达1亿坐标 的 极速欧拉微分回路 商旅路径计算 的 TSP算法 1代 20200112 罗瑶光
 ###### 增加了 2，3维 支持高达1亿坐标 的 极速欧拉微分回路 商旅路径计算 的 TSP算法 2,3代 20200317 罗瑶光
@@ -84,6 +87,7 @@ https://gitee.com/DetaChina/Data_Prediction/blob/master/src/org/tinos/deta/tsp/Y
 ###### 增加 进行精度误差 线性和2分匹配 来获取质量是否属于合格状态算法 20191228 罗瑶光
 ###### 增加 进行2维和3维的像素矩阵中2分极值分类 来进行 map坐标转化观测 算法 20190229 罗瑶光
 ###### 增加 将shareholder分层处理的图片像素数据 按指定的精度和对应像素进行按像素团的大小进行特定过滤算法 20190302 罗瑶光
+https://github.com/yaoguangluo/Data_Prediction/blob/master/src/org/tinos/deta/image/ImagePixGroupFilter.java
 ###### 增加 将像素矩阵指定的RBG颜色值拿出来形成波形数列输出算法 20190303 罗瑶光
 ###### 增加 2，3维 带精度 矩阵中非有效成份筛选过滤算法 20190303 罗瑶光
 
