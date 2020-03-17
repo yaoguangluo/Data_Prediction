@@ -13,14 +13,14 @@ import org.tinos.deta.demension.Line2D;
 import org.tinos.deta.demension.Line3D;
 import org.tinos.deta.demension.Position2D;
 import org.tinos.deta.demension.Position3D;
-import org.tinos.deta.statistic.LYG4DWithDoubleQuickSort4D;
 import org.tinos.deta.statistic.LYG5DWithDoubleQuickSort4D;
 
 public class YaoguangLuoEulerRingTSP3D{
 	//Foundation: Euler
 	//Theory: Yaoguang.Luo
-	//Application: Yaoguang.Luo 20200114
-	public List<Line2D> getYaoguangLuo2DEulerRingTSP2D(List<Position2D> positions){
+	//Application: Yaoguang.Luo 20200317
+	public List<Line2D> getYaoguangLuo2DEulerRingTSP3D(List<Position2D> positions
+			, int sortRangeScale, int sortDeepsScale){
 		//1 annotations 
 		List<Position2D> position2DTag= new ArrayList<>();
 		Iterator<Position2D> iterator= positions.iterator();
@@ -87,8 +87,8 @@ public class YaoguangLuoEulerRingTSP3D{
 			uniqueLines.put(distanceDouble, list);
 		}
 		//6 Yaoguangluo's 4D Peak filter Theory Quick Sort the Distance Array
-		int sortRangeScale= 4; //my default is 4. you should change it as your want.
-		distance= new LYG5DWithDoubleQuickSort4D().sort(distance, sortRangeScale, 80);
+		//int sortRangeScale= 4; //my default is 4. you should change it as your want.
+		distance= new LYG5DWithDoubleQuickSort4D().sort(distance, sortRangeScale, sortDeepsScale);
 		//7 From small to big loop the distance and make a condition tree.
 		List<Line2D> outputLine2D= new ArrayList<>(); 
 		Map<String, Double> outputDouble2D= new HashMap<>(); 
@@ -136,7 +136,8 @@ public class YaoguangLuoEulerRingTSP3D{
 		return outputLine2D;	
 	}
 	
-	public List<Line3D> getYaoguangLuo3DEulerRingTSP2D(List<Position3D> positions){
+	public List<Line3D> getYaoguangLuo3DEulerRingTSP3D(List<Position3D> positions
+			, int sortRangeScale, int sortDeepsScale){
 		//1 annotations 
 		List<Position3D> position3DTag= new ArrayList<>();
 		Iterator<Position3D> iterator= positions.iterator();
@@ -204,8 +205,8 @@ public class YaoguangLuoEulerRingTSP3D{
 			uniqueLines.put(distanceDouble, list);
 		}
 		//6 Yaoguangluo's 4D Peak filter Theory Quick Sort the Distance Array
-		int sortRangeScale= 4; //my default is 4. you should change it as your want.
-		distance= new LYG5DWithDoubleQuickSort4D().sort(distance, sortRangeScale, 80);
+		//int sortRangeScale= 4; //my default is 4. you should change it as your want.
+		distance= new LYG5DWithDoubleQuickSort4D().sort(distance, sortRangeScale, sortDeepsScale);
 		//7 From small to big loop the distance and make a condition tree.
 		List<Line3D> outputLine3D= new ArrayList<>(); 
 		Map<String, Double> outputDouble3D= new HashMap<>(); 
