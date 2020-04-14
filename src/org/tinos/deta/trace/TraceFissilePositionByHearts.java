@@ -23,7 +23,7 @@ public class TraceFissilePositionByHearts{
 		while(iterator.hasNext()) {
 			Position2D heartPostion= iterator.next();
 			//position2D.setX((heart.getX()+ oneMore.getX())/ 2);
-			//heart= (lastp+newp)/2    =>  newp= heart*2 -lastp  
+			//heart= (lastp+ newp)/2    =>  newp= heart*2 -lastp  
 			//add section 1234
 			Position2D newPosition2D= new Position2D(heartPostion.getX()*2- lastPosition2D.getX()
 												   , heartPostion.getY()*2- lastPosition2D.getY());
@@ -46,9 +46,9 @@ public class TraceFissilePositionByHearts{
 			//position3D.setX((heart.getX()+ oneMore.getX())/ 2);
 			//heart= (lastp+newp)/2 =>  newp= heart* 2- lastp  
 			//add section 1234
-			Position3D newPosition3D= new Position3D(heartPostion.getX()*2- lastPosition3D.getX()
-												   , heartPostion.getY()*2- lastPosition3D.getY()
-												   , heartPostion.getZ()*2- lastPosition3D.getZ());
+			Position3D newPosition3D= new Position3D(heartPostion.getX()* 2- lastPosition3D.getX()
+												   , heartPostion.getY()* 2- lastPosition3D.getY()
+												   , heartPostion.getZ()* 2- lastPosition3D.getZ());
 			trackTracePositions.add(newPosition3D);
 			lastPosition3D= newPosition3D;
 		}
