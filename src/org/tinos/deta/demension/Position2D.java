@@ -2,7 +2,7 @@ package org.tinos.deta.demension;
 //Theory: Eclid
 //Application: Yaoguang.luo
 public class Position2D{
-	public Position2D(int x, int y) {
+	public Position2D(double x, double y) {
 		this.setX(x);
 		this.setY(y);
 	}

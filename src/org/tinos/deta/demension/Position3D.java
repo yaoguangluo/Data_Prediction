@@ -2,7 +2,7 @@ package org.tinos.deta.demension;
 //Theory: Euclid
 //Application: Yaoguang.luo
 public class Position3D{
-	public Position3D(int x, int y, int z) {
+	public Position3D(double x, double y, double z) {
 		this.setX(x);
 		this.setY(y);
 		this.setZ(z);
