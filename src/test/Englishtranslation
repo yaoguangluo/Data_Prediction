@@ -1,0 +1,4 @@
+Improved Euclid's entropy increasing distance displacement labeling algorithm 20191216 Luo Yaoguang
+Improved Euclid distance gravity center algorithm 20191216 Luo Yaoguang
+Improved the coordinate radar algorithm based on 2D gravity center curvature emitter slope detection coordinate acquisition to obtain edges, which is 600 times faster than conventional edge small line segment set gradient calculation. 20191216 Luo Yaoguang
+Improved the coordinate radar algorithm based on 3D gravity center curvature emitter slope detection coordinate acquisition to obtain edges, which is 600 times faster than conventional edge small line segment set gradient calculation. 20191218 Luo Yaoguang
